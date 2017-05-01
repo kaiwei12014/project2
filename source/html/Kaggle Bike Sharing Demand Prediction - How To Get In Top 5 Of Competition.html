@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/ -->
+<html class=" js csstransforms3d"><head lang="en-US" prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Meta Tags -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="https://www.google-analytics.com/" rel="dns-prefetch">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="pingback" href="https://www.analyticsvidhya.com/xmlrpc.php">
+    <link rel="icon" id="favicon" type="image/png" href="https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg"><link rel="apple-touch-icon" href="https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg"><link rel="apple-touch-icon" sizes="76x76" href="https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg"><link rel="apple-touch-icon" sizes="114x114" href="https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg"><link rel="apple-touch-icon" sizes="144x144" href="https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg">
+    <title> Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition </title>
+
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+   <link rel="stylesheet" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/popup-style7.css">
+
+				<div class="fit-vids-style" id="fit-vids-style" style="display: none;">­<style>.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></div><script async="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/analytics.js.下載"></script><script async="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/analytics.js.下載"></script><script type="text/javascript">
+					var bhittani_plugin_kksr_js = {"nonce":"3e59da1f85","grs":false,"ajaxurl":"https:\/\/www.analyticsvidhya.com\/wp-admin\/admin-ajax.php","func":"kksr_ajax","msg":"Rate this post","fuelspeed":400,"thankyou":"Thank you for your vote","error_msg":"An error occurred","tooltip":"1","tooltips":[{"color":"#ffffff"},{"color":"#ffffff"},{"color":"#ffffff"},{"color":"#ffffff"},{"color":"#ffffff"}]};
+				</script>
+				<style>
+.stb-container-css {margin: 10px 10px 10px 10px;}.stb-box {}.stb-caption-box {}.stb-body-box {}
+/* Class Dependent Parameters */
+.stb-border.stb-alert-container {border: 1px none #FF4F4A;}.stb-side.stb-alert-container {background: #FF4F4A;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF4F4A', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #FF4F4A 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FF4F4A), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -o-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -ms-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: linear-gradient(#FF4F4A 30%, #504848 90%);}.stb-side-none.stb-alert-container {background: #FFE7E6;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE7E6', endColorstr='#fb7d78',GradientType=0 );background: -moz-linear-gradient(top,  #FFE7E6 30%, #fb7d78 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FFE7E6), color-stop(90%,#fb7d78));background: -webkit-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -o-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -ms-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: linear-gradient(#FFE7E6 30%, #fb7d78 90%);}.stb-alert_box {background: #FFE7E6;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE7E6', endColorstr='#fb7d78',GradientType=0 );background: -moz-linear-gradient(top,  #FFE7E6 30%, #fb7d78 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FFE7E6), color-stop(90%,#fb7d78));background: -webkit-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -o-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -ms-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: linear-gradient(#FFE7E6 30%, #fb7d78 90%);color: #000000;}.stb-alert-caption_box {background: #FF4F4A;background: -moz-linear-gradient(top,  #FF4F4A 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FF4F4A), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -o-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -ms-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: linear-gradient(#FF4F4A 30%, #504848 90%);color: #FFFFFF;}.stb-alert-body_box {background: #FFE7E6;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE7E6', endColorstr='#fb7d78',GradientType=0 );background: -moz-linear-gradient(top,  #FFE7E6 30%, #fb7d78 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FFE7E6), color-stop(90%,#fb7d78));background: -webkit-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -o-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -ms-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: linear-gradient(#FFE7E6 30%, #fb7d78 90%);color: #000000;}.stb-border.stb-black-container {border: 1px none #6E6E6E;}.stb-side.stb-black-container {background: #333333;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #333333 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#333333), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #333333 30%,#504848 90%);background: -o-linear-gradient(top,  #333333 30%,#504848 90%);background: -ms-linear-gradient(top,  #333333 30%,#504848 90%);background: linear-gradient(#333333 30%, #504848 90%);}.stb-side-none.stb-black-container {background: #000000;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );background: -moz-linear-gradient(top,  #000000 30%, #000000 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#000000), color-stop(90%,#000000));background: -webkit-linear-gradient(top,  #000000 30%,#000000 90%);background: -o-linear-gradient(top,  #000000 30%,#000000 90%);background: -ms-linear-gradient(top,  #000000 30%,#000000 90%);background: linear-gradient(#000000 30%, #000000 90%);}.stb-black_box {background: #000000;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );background: -moz-linear-gradient(top,  #000000 30%, #000000 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#000000), color-stop(90%,#000000));background: -webkit-linear-gradient(top,  #000000 30%,#000000 90%);background: -o-linear-gradient(top,  #000000 30%,#000000 90%);background: -ms-linear-gradient(top,  #000000 30%,#000000 90%);background: linear-gradient(#000000 30%, #000000 90%);color: #FFFFFF;}.stb-black-caption_box {background: #333333;background: -moz-linear-gradient(top,  #333333 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#333333), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #333333 30%,#504848 90%);background: -o-linear-gradient(top,  #333333 30%,#504848 90%);background: -ms-linear-gradient(top,  #333333 30%,#504848 90%);background: linear-gradient(#333333 30%, #504848 90%);color: #FFFFFF;}.stb-black-body_box {background: #000000;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );background: -moz-linear-gradient(top,  #000000 30%, #000000 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#000000), color-stop(90%,#000000));background: -webkit-linear-gradient(top,  #000000 30%,#000000 90%);background: -o-linear-gradient(top,  #000000 30%,#000000 90%);background: -ms-linear-gradient(top,  #000000 30%,#000000 90%);background: linear-gradient(#000000 30%, #000000 90%);color: #FFFFFF;}.stb-border.stb-custom-container {border: 1px none #f844ee;}.stb-side.stb-custom-container {background: #f844ee;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f844ee', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #f844ee 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f844ee), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -o-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -ms-linear-gradient(top,  #f844ee 30%,#504848 90%);background: linear-gradient(#f844ee 30%, #504848 90%);}.stb-side-none.stb-custom-container {background: #f7cdf5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cdf5', endColorstr='#f77df1',GradientType=0 );background: -moz-linear-gradient(top,  #f7cdf5 30%, #f77df1 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f7cdf5), color-stop(90%,#f77df1));background: -webkit-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -o-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -ms-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: linear-gradient(#f7cdf5 30%, #f77df1 90%);}.stb-custom_box {background: #f7cdf5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cdf5', endColorstr='#f77df1',GradientType=0 );background: -moz-linear-gradient(top,  #f7cdf5 30%, #f77df1 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f7cdf5), color-stop(90%,#f77df1));background: -webkit-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -o-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -ms-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: linear-gradient(#f7cdf5 30%, #f77df1 90%);color: #000000;}.stb-custom-caption_box {background: #f844ee;background: -moz-linear-gradient(top,  #f844ee 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f844ee), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -o-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -ms-linear-gradient(top,  #f844ee 30%,#504848 90%);background: linear-gradient(#f844ee 30%, #504848 90%);color: #ffffff;}.stb-custom-body_box {background: #f7cdf5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cdf5', endColorstr='#f77df1',GradientType=0 );background: -moz-linear-gradient(top,  #f7cdf5 30%, #f77df1 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f7cdf5), color-stop(90%,#f77df1));background: -webkit-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -o-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -ms-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: linear-gradient(#f7cdf5 30%, #f77df1 90%);color: #000000;}.stb-border.stb-download-container {border: 1px none #65ADFE;}.stb-side.stb-download-container {background: #65ADFE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65ADFE', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #65ADFE 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#65ADFE), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -o-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -ms-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: linear-gradient(#65ADFE 30%, #504848 90%);}.stb-side-none.stb-download-container {background: #DFF0FF;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFF0FF', endColorstr='#2e7cb9',GradientType=0 );background: -moz-linear-gradient(top,  #DFF0FF 30%, #2e7cb9 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#DFF0FF), color-stop(90%,#2e7cb9));background: -webkit-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -o-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -ms-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: linear-gradient(#DFF0FF 30%, #2e7cb9 90%);}.stb-download_box {background: #DFF0FF;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFF0FF', endColorstr='#2e7cb9',GradientType=0 );background: -moz-linear-gradient(top,  #DFF0FF 30%, #2e7cb9 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#DFF0FF), color-stop(90%,#2e7cb9));background: -webkit-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -o-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -ms-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: linear-gradient(#DFF0FF 30%, #2e7cb9 90%);color: #000000;}.stb-download-caption_box {background: #65ADFE;background: -moz-linear-gradient(top,  #65ADFE 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#65ADFE), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -o-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -ms-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: linear-gradient(#65ADFE 30%, #504848 90%);color: #FFFFFF;}.stb-download-body_box {background: #DFF0FF;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFF0FF', endColorstr='#2e7cb9',GradientType=0 );background: -moz-linear-gradient(top,  #DFF0FF 30%, #2e7cb9 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#DFF0FF), color-stop(90%,#2e7cb9));background: -webkit-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -o-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -ms-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: linear-gradient(#DFF0FF 30%, #2e7cb9 90%);color: #000000;}.stb-border.stb-grey-container {border: 1px none #BBBBBB;}.stb-side.stb-grey-container {background: #BBBBBB;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BBBBBB', endColorstr='#6e6e6e',GradientType=0 );background: -moz-linear-gradient(top,  #BBBBBB 30%, #6e6e6e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#BBBBBB), color-stop(90%,#6e6e6e));background: -webkit-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -o-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -ms-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: linear-gradient(#BBBBBB 30%, #6e6e6e 90%);}.stb-side-none.stb-grey-container {background: #EEEEEE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#ababab',GradientType=0 );background: -moz-linear-gradient(top,  #EEEEEE 30%, #ababab 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#EEEEEE), color-stop(90%,#ababab));background: -webkit-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -o-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -ms-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: linear-gradient(#EEEEEE 30%, #ababab 90%);}.stb-grey_box {background: #EEEEEE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#ababab',GradientType=0 );background: -moz-linear-gradient(top,  #EEEEEE 30%, #ababab 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#EEEEEE), color-stop(90%,#ababab));background: -webkit-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -o-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -ms-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: linear-gradient(#EEEEEE 30%, #ababab 90%);color: #000000;}.stb-grey-caption_box {background: #BBBBBB;background: -moz-linear-gradient(top,  #BBBBBB 30%, #6e6e6e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#BBBBBB), color-stop(90%,#6e6e6e));background: -webkit-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -o-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -ms-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: linear-gradient(#BBBBBB 30%, #6e6e6e 90%);color: #FFFFFF;}.stb-grey-body_box {background: #EEEEEE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#ababab',GradientType=0 );background: -moz-linear-gradient(top,  #EEEEEE 30%, #ababab 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#EEEEEE), color-stop(90%,#ababab));background: -webkit-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -o-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -ms-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: linear-gradient(#EEEEEE 30%, #ababab 90%);color: #000000;}.stb-border.stb-info-container {border: 1px none #7AD975;}.stb-side.stb-info-container {background: #7AD975;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7AD975', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #7AD975 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#7AD975), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -o-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -ms-linear-gradient(top,  #7AD975 30%,#504848 90%);background: linear-gradient(#7AD975 30%, #504848 90%);}.stb-side-none.stb-info-container {background: #E2F8DE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2F8DE', endColorstr='#79b06e',GradientType=0 );background: -moz-linear-gradient(top,  #E2F8DE 30%, #79b06e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#E2F8DE), color-stop(90%,#79b06e));background: -webkit-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -o-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -ms-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: linear-gradient(#E2F8DE 30%, #79b06e 90%);}.stb-info_box {background: #E2F8DE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2F8DE', endColorstr='#79b06e',GradientType=0 );background: -moz-linear-gradient(top,  #E2F8DE 30%, #79b06e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#E2F8DE), color-stop(90%,#79b06e));background: -webkit-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -o-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -ms-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: linear-gradient(#E2F8DE 30%, #79b06e 90%);color: #000000;}.stb-info-caption_box {background: #7AD975;background: -moz-linear-gradient(top,  #7AD975 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#7AD975), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -o-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -ms-linear-gradient(top,  #7AD975 30%,#504848 90%);background: linear-gradient(#7AD975 30%, #504848 90%);color: #FFFFFF;}.stb-info-body_box {background: #E2F8DE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2F8DE', endColorstr='#79b06e',GradientType=0 );background: -moz-linear-gradient(top,  #E2F8DE 30%, #79b06e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#E2F8DE), color-stop(90%,#79b06e));background: -webkit-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -o-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -ms-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: linear-gradient(#E2F8DE 30%, #79b06e 90%);color: #000000;}.stb-border.stb-section-container {border: 1px none #2982C5;}.stb-side.stb-section-container {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#2944f2',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #2944f2 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#2944f2));background: -webkit-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -o-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: linear-gradient(#2982C5 30%, #2944f2 90%);}.stb-side-none.stb-section-container {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#294ee3',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #294ee3 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#294ee3));background: -webkit-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -o-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: linear-gradient(#2982C5 30%, #294ee3 90%);}.stb-section_box {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#294ee3',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #294ee3 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#294ee3));background: -webkit-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -o-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: linear-gradient(#2982C5 30%, #294ee3 90%);color: #000000;}.stb-section-caption_box {background: #2982C5;background: -moz-linear-gradient(top,  #2982C5 30%, #2944f2 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#2944f2));background: -webkit-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -o-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: linear-gradient(#2982C5 30%, #2944f2 90%);color: #FFFFFF;}.stb-section-body_box {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#294ee3',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #294ee3 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#294ee3));background: -webkit-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -o-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: linear-gradient(#2982C5 30%, #294ee3 90%);color: #000000;}.stb-border.stb-warning-container {border: 1px none #FE9A05;}.stb-side.stb-warning-container {background: #FE9A05;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FE9A05', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #FE9A05 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FE9A05), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -o-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -ms-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: linear-gradient(#FE9A05 30%, #504848 90%);}.stb-side-none.stb-warning-container {background: #FEFFD5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFD5', endColorstr='#f0d208',GradientType=0 );background: -moz-linear-gradient(top,  #FEFFD5 30%, #f0d208 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FEFFD5), color-stop(90%,#f0d208));background: -webkit-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -o-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -ms-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: linear-gradient(#FEFFD5 30%, #f0d208 90%);}.stb-warning_box {background: #FEFFD5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFD5', endColorstr='#f0d208',GradientType=0 );background: -moz-linear-gradient(top,  #FEFFD5 30%, #f0d208 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FEFFD5), color-stop(90%,#f0d208));background: -webkit-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -o-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -ms-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: linear-gradient(#FEFFD5 30%, #f0d208 90%);color: #000000;}.stb-warning-caption_box {background: #FE9A05;background: -moz-linear-gradient(top,  #FE9A05 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FE9A05), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -o-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -ms-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: linear-gradient(#FE9A05 30%, #504848 90%);color: #FFFFFF;}.stb-warning-body_box {background: #FEFFD5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFD5', endColorstr='#f0d208',GradientType=0 );background: -moz-linear-gradient(top,  #FEFFD5 30%, #f0d208 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FEFFD5), color-stop(90%,#f0d208));background: -webkit-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -o-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -ms-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: linear-gradient(#FEFFD5 30%, #f0d208 90%);color: #000000;}</style>
+
+<!-- This site is optimized with the Yoast SEO plugin v4.6 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="This article is Solution of bike sharing demand kaggle competition using Rstudio covering hypothesis generation, feature engineering &amp; random forest modeling to improve performance.">
+<meta name="robots" content="noodp">
+<meta name="keywords" content="kaggle competition, structured thinking, hypothesis testing, feature engineering, model building">
+<link rel="canonical" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition">
+<meta property="og:description" content="This article is Solution of bike sharing demand kaggle competition using Rstudio covering hypothesis generation, feature engineering &amp; random forest modeling to improve performance.">
+<meta property="og:url" content="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/">
+<meta property="og:site_name" content="Analytics Vidhya">
+<meta property="article:publisher" content="https://www.facebook.com/AnalyticsVidhya/">
+<meta property="article:tag" content="bike sharing solution">
+<meta property="article:tag" content="data exploration">
+<meta property="article:tag" content="feature engineering">
+<meta property="article:tag" content="hypothesis generation">
+<meta property="article:tag" content="kaggle">
+<meta property="article:tag" content="Model building">
+<meta property="article:tag" content="multivariate">
+<meta property="article:tag" content="Univariate">
+<meta property="article:section" content="Business Analytics">
+<meta property="article:published_time" content="2015-06-25T20:25:07+00:00">
+<meta property="article:modified_time" content="2015-09-16T08:55:48+00:00">
+<meta property="og:updated_time" content="2015-09-16T08:55:48+00:00">
+<meta property="og:image" content="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="450">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="This article is Solution of bike sharing demand kaggle competition using Rstudio covering hypothesis generation, feature engineering &amp; random forest modeling to improve performance.">
+<meta name="twitter:title" content="Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition">
+<meta name="twitter:site" content="@analyticsvidhya">
+<meta name="twitter:image" content="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22.jpg">
+<meta name="twitter:creator" content="@analyticsvidhya">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Analytics Vidhya » Feed" href="https://www.analyticsvidhya.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Analytics Vidhya » Comments Feed" href="https://www.analyticsvidhya.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Analytics Vidhya » Kaggle Bike Sharing Demand Prediction – How I got in top 5 percentile of participants? Comments Feed" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.analyticsvidhya.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.4"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/wp-emoji-release.min.js.下載" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="dgd-scrollbox-plugin-core-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="bhittani_plugin_kksr-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="maha-bootstrap-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/bootstrap-responsive.css" type="text/css" media="all">
+<link rel="stylesheet" id="maha-entypo-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/entypo.css" type="text/css" media="all">
+<link rel="stylesheet" id="maha-basix-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/basix.css" type="text/css" media="all">
+<link rel="stylesheet" id="maha-basix-r-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/basix-responsive.css" type="text/css" media="all">
+<link rel="stylesheet" id="maha_heading_font-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="maha_main_font-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="maha_content_font-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="stbCoreCSS-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/stb-core.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/social-logos.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpss-style-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/wpss-pkg.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpss-custom-db-style-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="simplr-forms-style-css" href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/default.css" type="text/css" media="all">
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/jquery.js.下載"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/jquery-migrate.min.js.下載" defer="defer"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/related-posts.js.下載" defer="defer"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var $DGD = {"ajaxurl":"\/wp-admin\/admin-ajax.php","nonce":"86271a617b","debug":"","permalink":"https:\/\/www.analyticsvidhya.com\/blog\/2015\/06\/solution-kaggle-competition-bike-sharing-demand\/","title":"Kaggle Bike Sharing Demand Prediction - How I got in top 5 percentile of participants?","thumbnail":"https:\/\/www.analyticsvidhya.com\/wp-content\/uploads\/2015\/06\/22.jpg","scripthost":"\/wp-content\/plugins\/dreamgrow-scroll-triggered-box\/","scrollboxes":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/script.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/js.min.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/wpss-pkg.min.js.下載" defer="defer"></script>
+<link rel="https://api.w.org/" href="https://www.analyticsvidhya.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.analyticsvidhya.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.analyticsvidhya.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.7.4">
+<link rel="shortlink" href="https://www.analyticsvidhya.com/?p=17900">
+<link rel="alternate" type="application/json+oembed" href="https://www.analyticsvidhya.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2015%2F06%2Fsolution-kaggle-competition-bike-sharing-demand%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.analyticsvidhya.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2015%2F06%2Fsolution-kaggle-competition-bike-sharing-demand%2F&amp;format=xml">
+<style>.kk-star-ratings { width:120px; }.kk-star-ratings .kksr-stars a { width:24px; }.kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a { height:24px; }.kk-star-ratings .kksr-star.gray { background-image: url(https://www.analyticsvidhya.com/wp-content/uploads/2016/07/gray.png); }.kk-star-ratings .kksr-star.yellow { background-image: url(https://www.analyticsvidhya.com/wp-content/uploads/2016/07/yellow.png); }.kk-star-ratings .kksr-star.orange { background-image: url(https://www.analyticsvidhya.com/wp-content/uploads/2016/07/orange.png); }</style><!-- WordPress Most Popular --><script type="text/javascript">/* <![CDATA[ */ jQuery.post("https://www.analyticsvidhya.com/wp-admin/admin-ajax.php", { action: "wmp_update", id: 17900, token: "dc10e7db2d" }); /* ]]> */</script><!-- /WordPress Most Popular -->              <!-- Start Facebook Share -->
+              <meta property="og:url" content="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/">
+              <meta property="og:title" content="Kaggle Bike Sharing Demand Prediction - How I got in top 5 percentile of participants?">
+              <meta property="og:description" content="Introduction There are three types of people who take part in a Kaggle Competition: Type 1: Who are experts in machine learning and their motivation is to compete with the best data scientists across the globe. They aim to  achieve the highest accuracy Type 2: Who aren&#39;t experts exactly, but participate to get better at machine learning.">
+              <meta property="og:image" content="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22.jpg">
+              <!-- End Facebook Share -->
+        <link rel="canonical" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/">
+<style type="text/css">                    #footer .block-cap h3 {
+    border-bottom: 0px solid #dcdcdc;
+}
+#footer .widget {
+    border-bottom: 0px solid #2c2c2c;
+}
+.social_subscribe .social-network .social-network-unit {
+    font-size: 10px;
+}
+.social_subscribe .social-network .social-network-count {
+    font-size: 18px;
+}
+/*----------------------------------*/
+.right-left{
+    height: 46px;
+}
+.filter{
+    height:450px;
+}
+.text_filter h4{
+float: left;
+margin-left: 7%;
+margin-top: 0px;
+font-size: 14px;
+width: 70%;
+text-align: left;
+}
+/*
+.text_filter img{
+  padding-left:35%;
+  padding-top:8%;
+}
+.text_filter p{
+  text-align: center;
+  margin-top: 10px;
+}*/
+.btn1{
+  background-color: #403D3D;
+box-shadow: none;
+border: none;
+padding: 12px 10px 12px 10px;
+color: #fff;
+}
+.btn2{
+background-color: #403D3D;
+box-shadow: none;
+border: none;
+padding: 12px 10px 12px 10px;
+color: #fff;
+}
+.btn_filter{
+  background-color:#403D3D;
+text-align: center;
+color: #fff;
+border-right: 2px solid #fff;
+}
+.btn1:hover{
+  background-color: #000;
+  padding: 12px 10px 12px 10px;
+color: #fff;
+}
+.btn2:hover{
+  background-color: #000;
+  padding: 12px 10px 12px 10px;
+color: #fff;
+}
+/*----------------------------------*/
+#thelogosmall img {
+    margin-top: 6px;
+}
+.pagethumb{height:141px;}
+#wpstats{display:none;}
+.trainingthumb{width:10%;}
+.training{padding-left:95px!important;}
+.admininfo{display:none;}
+.featurtr{height:25px;}
+
+#listcategorypostswidget-2 ul li a,#listcategorypostswidget-3 ul li a{
+    	font-size: 16px;
+	line-height: 1.4em;
+	letter-spacing: 0.1px;
+	font-family: "Oswald",Arial,sans-serif;
+	color: #333;
+}
+
+#latestdiscoursepostswidget-3 ul li a,#latestdiscoursepostswidget-2 ul li a{
+	font-size: 16px;
+	line-height: 1.4em;
+	letter-spacing: 0.1px;
+	font-family: "Oswald",Arial,sans-serif;
+	color: #333;
+}
+.widget_menus ul li{width:53%;}
+.cntctfrm_label, .cntctfrm_input, .cntctfrm_select, .cntctfrm_checkbox
+{
+    max-width:100%; margin:5px;
+}
+.cntctfrm_contact_submit
+{
+ -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #151515;
+    border-bottom: 0 none !important;
+    border-image: none;
+    border-left: medium none;
+    border-radius: 3px;
+    border-right: medium none;
+    border-top: medium none;
+    color: #fff;
+    display: inline-block;
+    font-family: "Oswald",Arial,sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    opacity: 0.8;
+    padding: 9px 20px;
+    text-transform: uppercase;
+    transition: all 0.3s linear 0s;
+}
+#body-maha {
+background-color: #fff;
+background-image: url("/wp-content/uploads/2015/02/wild-sea24.jpg");
+background-repeat: repeat;
+background-position: center center;
+
+}
+.page-id-12650 #body-maha #body-background #off-canvas-body .page-wrapper .page-default #cur-page .post-box-oblog.animated.fadeInUp
+{
+    padding-left:0px;
+}
+.sidebar .block-cap h3
+{
+    margin-bottom:10px;
+}
+#text-8 .textwidget {
+    height: 260px!important;
+}
+.pagetitle-divider
+{
+    border-bottom: 4px solid #333333;
+    display: block;
+    margin: 15px 0 16px;
+}
+
+#resultip {
+    margin-left: 0px;
+}
+
+.text-content a{
+color:#00F;/*#2200CC; */ /*#F60;*/
+}
+.submit a {
+    background: none repeat scroll 0 0 #D34821;
+    border: medium none;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: .3px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+
+.submit {
+    background: none repeat scroll 0 0 #D34821;
+    border: medium none;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: .3px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    width: 18%;
+    float: right;
+}
+
+.jobsform {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.jobsform tr {
+    padding: 5px 20px;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.jobsform .jobstext {
+    margin: 0;
+    height: 35px;
+    width: 60%;
+    padding: 2px 5px;
+}
+
+.jobsform .submit {  width: 100%; }
+
+.star {
+    color: #E00202;
+}
+
+.textwidget{
+height:auto!important;
+}
+.popup-bg-1 {
+  clear: both;
+  background-color: #E32626;
+  height: 10px;
+  margin: -10px;
+}
+
+.h5-popup
+{
+font-size: 28px;
+margin-top: 20px!important;
+}
+
+
+.h6-popup
+{
+font-size: 18px;
+color:#02396F;
+}
+
+.p-popup
+{
+color:#02396F;
+font-size:16px;
+}
+
+.popup-email {
+  background-color: #fff;
+  width: 50%;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 6px;
+  overflow: hidden;
+  outline: none;
+  margin: 0 0 15px;
+  vertical-align: middle;
+  height: 46px;
+}
+
+.popup-subscribe{
+    background-color: #be1616;
+  background-image: none;
+  width: 35% !important;
+  height: 41px !important;
+  cursor: pointer;
+  float: right !important;
+  color: #FFF !important;
+  font-size: 18px;
+  margin-right: 62px;
+  margin-top: -65px;
+}
+.popup-ul
+{
+  color: #02396F;
+  font-weight:bold;
+}
+.popup-ul li
+{
+  list-style: none;
+  background: url("https://www.analyticsvidhya.com/wp-content/plugins/dreamgrow-scroll-triggered-box/themes/clean_white/bullet.png") 0 6px no-repeat;
+  padding: 0 0 0 25px;
+  line-height: 17px;
+}
+
+.main-ul-nav ul li a {
+/*padding: 0 12px;*/
+padding: 0 9px;
+}
+
+.text-content p{
+    font-size: 16px;
+    line-height: 25px;
+}
+/* Disable Related Posts 
+.related-article{display: none;}*/
+.jp-relatedposts-headline { 
+font-size: 22px!important;
+line-height: 1.2em!important;
+text-transform: uppercase!important;
+border-bottom: 4px solid #333!important;
+display: inline-block!important;
+margin: 0px 0px -1px!important;
+padding: 0px 3px 9px!important;
+}
+.jp-relatedposts-post-a{
+    line-height: 1.4em!important;
+letter-spacing: 0.2px!important;
+color: #333!important;
+font-weight: 500!important;
+font-size: 16px!important;
+word-wrap: break-word!important;
+font-family: "Oswald",Arial,sans-serif!important;
+}
+
+.top_users{
+margin-top:-23px;
+width: 100%;
+text-align:center;
+border-top: none!important;
+border-bottom: 1px solid #999; 
+
+/*
+border-top: 2px solid #999; 
+border-bottom: 2px solid #999; 
+ */
+}
+.top_users tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.top_users_li{
+padding-left:0px;
+margin-left:0px;
+}
+
+.top_users_td_image {
+width:60px;
+border:0px;
+}
+
+.top_users_img {
+	height: 40px;
+	border-radius: 25px;
+	/*width: 40px;*/
+}
+.top_users_name_td{
+text-align:left;
+}
+
+.top_users_name{
+	margin-left:10px;
+}
+
+.top_users_more
+{
+    float:right;
+    margin-right:10px;
+}
+
+.wpcf7 .wpcf7-form-control-wrap input, .wpcf7 .wpcf7-form-control-wrap textarea {
+    margin-bottom: 0px;
+    width: auto !important;
+}
+
+code {
+    white-space:normal;
+}
+
+
+.adslot_1 { width: 320px; height: 100px; }
+@media (min-width:500px) { .adslot_1 { width: 468px; height: 60px; } }
+@media (min-width:800px) { .adslot_1 { width: 728px; height: 90px; } }
+@media (min-width:1200px) { .adslot_1 { width: 970px; height: 90px; } }
+
+.adslot_2 { width: 320px; height: 100px; }
+@media (min-width:500px) { .adslot_2 { width: 468px; height: 60px; } }
+@media (min-width:800px) { .adslot_2 { width: 728px; height: 90px; } }
+@media (min-width:1200px) { .adslot_2 { width: 728px; height: 90px; } }                </style>                    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40101183-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40101183-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {     
+jQuery(document).ready(function(){
+jQuery( ".col-sm-12" ).removeClass( "myrun" );    
+});
+}
+</script>
+<script>
+jQuery(document).ready(function(){
+	jQuery(".filter-button").click(function(){
+		var value = jQuery(this).attr('data-filter');
+       if(value == "all"){
+           $('.filter').show('1000');
+       }else{
+			jQuery(".filter").not('.'+value).hide('3000');
+			jQuery('.filter').filter('.'+value).show('3000');
+       }
+   });
+});
+</script>                
+</head>
+
+<body class="post-template-default single single-post postid-17900 single-format-standard chrome mh-body">
+
+    <div id="body-maha" class="body-maha">
+
+        <nav id="mobile-bar-sticky" role="navigation" class="mobile-bar bar-sticky">
+            <div id="close-mobile-bar"><i class="icon-cancel"></i></div>
+            <div id="search-mobile-bar"><form action="https://www.analyticsvidhya.com/" class="searchform" method="get">
+	<button class="search-button"><i class="icon-search"></i></button>
+	<input type="text" name="s" value="Search" onfocus="if(this.value==&#39;Search&#39;)this.value=&#39;&#39;;" onblur="if(this.value==&#39;&#39;)this.value=&#39;Search&#39;;" autocomplete="off">
+</form></div>
+            <ul id="menu-main-menu" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mh-navcat-0"><span class="navmob-sub-menu"><i class="icon-down-open-mini"></i></span><a href="https://www.analyticsvidhya.com/blog/">Blog</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children mh-navcat-5"><span class="navmob-sub-menu"><i class="icon-down-open-mini"></i></span><a href="https://www.analyticsvidhya.com/blog/category/business-analytics/">Business Analytics</a>
+	<ul class="sub-menu">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-11"><span></span><a href="https://www.analyticsvidhya.com/blog/category/sas/">SAS</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent mh-navcat-72"><span></span><a href="https://www.analyticsvidhya.com/blog/category/r/">R</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-396"><span></span><a href="https://www.analyticsvidhya.com/blog/category/python-2/">Python</a></li>
+	</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children mh-navcat-8"><span class="navmob-sub-menu"><i class="icon-down-open-mini"></i></span><a href="https://www.analyticsvidhya.com/blog/category/business-intelligence/">Business Intelligence</a>
+	<ul class="sub-menu">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-9"><span></span><a href="https://www.analyticsvidhya.com/blog/category/qlikview/">Qlikview</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-25"><span></span><a href="https://www.analyticsvidhya.com/blog/category/web-analytics-2/">Web Analytics</a></li>
+	</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-29"><span></span><a href="https://www.analyticsvidhya.com/blog/category/big-data/">Big data</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-3118"><span></span><a href="https://www.analyticsvidhya.com/blog/category/stories/">Stories</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-2284"><span></span><a href="https://www.analyticsvidhya.com/blog/category/infographics/">Infographics</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/glossary-of-common-statistics-and-machine-learning-terms/">Glossary</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-170"><span></span><a href="https://www.analyticsvidhya.com/jobs/">Jobs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/trainings/">Trainings</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><span></span><a href="https://discuss.analyticsvidhya.com/">Discuss</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mh-navcat-0"><span class="navmob-sub-menu"><i class="icon-down-open-mini"></i></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/">Learning Paths</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-business-analyst-sas/">SAS Business Analyst</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-r-data-science/">LeaRn Data Science on R</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-data-science-python/">Data Science in Python</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/weka-gui-learn-machine-learning/">DATA SCIENCE IN WEKA</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/tableau-learning-path/">Data Visualization with Tableau</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/qlikview-learning-path/">Data Visualization with QlikView</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/newbie-d3-js-expert-complete-path-create-interactive-visualization-d3-js/">Interactive Data Stories with D3.js</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mh-navcat-0"><span class="navmob-sub-menu"><i class="icon-down-open-mini"></i></span><a href="https://datahack.analyticsvidhya.com/">DataHack</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><span></span><a href="https://datahack.analyticsvidhya.com/contest/all">Hackathons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-1915"><span></span><a href="https://www.analyticsvidhya.com/blog/category/events/">Events</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><span></span><a href="http://www.analyticsvidhya.com/about-me/write/">Write For Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/datafest-2017"><span style="color:#e53907">Datafest 2017</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/contact/">Contact Us</a></li>
+</ul>        </nav>
+
+        <!-- START BODY BACKGROUND -->
+        <div id="body-background">
+
+        <!-- START OFF CANVAS BODY -->
+                <div id="off-canvas-body" class="off-canvas-body animati-on">
+
+            <!-- START TOP BAR -->
+            <div id="top-bar-sticky" class="bar-sticky">
+                <div class="top-bar">
+
+                    <!-- start container -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="top-right-nav" class="ul-nav">
+                                    <ul>
+                                    <li><a target="_blank" href="https://www.facebook.com/AnalyticsVidhya"><i class="icon-facebook"></i></a></li><li><a target="_blank" href="https://twitter.com/analyticsvidhya"><i class="icon-twitter"></i></a></li><li><a target="_blank" href="https://plus.google.com/+Analyticsvidhya/posts"><i class="icon-gplus"></i></a></li><li><a target="_blank" href="https://www.linkedin.com/groups/Analytics-Vidhya-Learn-everything-about-5057165"><i class="icon-linkedin"></i></a></li>                                    </ul>
+                                </div>
+
+                                <nav id="top-nav-wrapper" class="ul-nav">
+                                    <ul id="menu-top" class="menu"><li id="menu-item-12951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-12951 mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/">Home</a></li>
+<li id="menu-item-12992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12992 mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/blog/">Blog</a></li>
+<li id="menu-item-12658" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12658 mh-navcat-170"><span></span><a href="https://www.analyticsvidhya.com/jobs/">Jobs</a></li>
+<li id="menu-item-12643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12643 mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/trainings/">Trainings</a></li>
+<li id="menu-item-12644" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12644 mh-navcat-0"><span></span><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/">Learning Paths</a></li>
+<li id="menu-item-12952" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12952 mh-navcat-0"><span></span><a href="https://discuss.analyticsvidhya.com/">Discuss</a></li>
+<li id="menu-item-20125" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20125 mh-navcat-0"><span></span><a href="https://datahack.analyticsvidhya.com/">DataHack</a></li>
+</ul>                                </nav>
+
+                                <nav id="top-mobile-wrapper" class="ul-nav">
+                                    <ul><li><a><i class="icon-menu"></i></a></li></ul>
+                                </nav>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end container -->
+
+                </div>
+            </div>
+            <!-- END TOP BAR -->
+
+            <!-- START MAIN BAR -->
+            <div class="main-logo-ads-wrap">
+                <div class="main-logo-ads">
+
+                    <!-- start container -->
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-sm-12">
+                                <!-- logo -->
+                                		<div id="thelogo" class="logo ">
+			<a href="https://www.analyticsvidhya.com/">
+				<img alt="Analytics Vidhya - Learn everything about Analytics" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/av100.png" data-retina="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/03/18122331/av100.png" data-first="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/03/18122331/av100.png" scale="0">
+			</a>
+		</div>
+		<h2 class="site-outline">Learn everything about Analytics</h2>
+                                <!-- adv -->
+                                <div id="main-ads" class="">
+                                    <div class="vp-1170 vp-fluid"><a href="https://datahack.analyticsvidhya.com/contest/datafest-closing-ceremony/" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/29-mar-2017_720.png" scale="0"></a></div>
+                                    <div class="vp-970 vp-750"><a href="https://datahack.analyticsvidhya.com/contest/datafest-closing-ceremony/" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/29-mar-2017_468.png" scale="0"></a></div>
+                                    <div class="vp-320"><a href="https://datahack.analyticsvidhya.com/contest/datafest-closing-ceremony/" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/29-mar-2017_350.png" scale="0"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end container -->
+
+                </div>
+            </div>
+            <!-- END MAIN BAR -->
+
+            <!-- START MAIN NAV BAR -->
+            <!-- <div id="main-nav-bar-sticky" class="main-bar-sticky"> -->
+            <div id="main-nav-bar" class="main-nav-bar clearfix ">
+                <div id="main-search" class=" clearfix">
+                    <div id="con-search">
+                        <div class="container">
+                            <div class="cols-sm12">
+                                <form action="https://www.analyticsvidhya.com/" id="main-search-form">
+                                    <!-- <input type="submit" class="go-search"/> -->
+                                    <span class="close-search-form"><i class="icon-cancel"></i></span>
+                                    <span class="loading-search-result"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/loading.gif" alt="" scale="0"></span>
+                                    <input type="text" class="search-field" autocomplete="off" name="s" placeholder="Type here... and hit enter">
+                                    
+                                                                        <div class="search-result">
+                                        <div class="container search-result-content">
+                                            
+                                        </div>
+                                    </div>
+                                                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="maha-notification container"><div id="main-notif"></div></div>
+
+                <div class="container clearfix">
+                    
+                </div>
+
+                <!-- start container -->
+                <div class="container clearfix">
+                    <div class="row clearfix">
+                        <div class="col-sm-12 clearfix">
+                            <!-- main search form -->
+
+                            <!-- login nav -->
+                            
+                            <!-- search nav -->
+                                                        <div id="search-nav" class="search-nav clearfix">
+                                <span class="open-search-form"><i class="icon-search"></i></span>
+                            </div>
+                            
+                            <!-- Cart nav -->
+                            
+                            <!-- main nav -->
+                            <nav id="main-nav-wrapper" class="main-ul-nav clearfix">
+                            		<div id="thelogosmall" class="logo">
+			<a href="https://www.analyticsvidhya.com/">
+				<img alt="Analytics Vidhya - Learn everything about Analytics" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/logo50X200.png" data-retina="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/03/29115748/logo50X200.png" data-first="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/03/29115748/logo50X200.png" scale="0">
+			</a>
+		</div>
+		<ul id="menu-main-menu-1" class="menu"><li id="menu-item-26470" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home mh-navcat-0"><a href="https://www.analyticsvidhya.com/">Home</a>
+</li>
+<li id="menu-item-12993" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mh-navcat-0 ord-nav-offset"><a href="https://www.analyticsvidhya.com/blog/">Blog<span class="sub-ord-nav"> <i class="icon-down-open-mini"></i> </span></a><div class="nav-sub-wrap ord-nav"><div class="nsw">
+<div class="nav-sub-menus"><ul>
+	<li id="menu-item-2475" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children mh-navcat-5"><a href="https://www.analyticsvidhya.com/blog/category/business-analytics/">Business Analytics<span class="sub-ord-nav"> <i class="icon-right-open-mini"></i> </span></a>
+	<div class="nav-sub-wrap ord-nav"><div class="nsw"><div class="nav-sub-menus"><ul>
+		<li id="menu-item-2478" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-11"><a href="https://www.analyticsvidhya.com/blog/category/sas/">SAS</a></li>
+		<li id="menu-item-7476" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent mh-navcat-72"><a href="https://www.analyticsvidhya.com/blog/category/r/">R</a></li>
+		<li id="menu-item-7713" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-396"><a href="https://www.analyticsvidhya.com/blog/category/python-2/">Python</a></li>
+	</ul></div></div></div>
+</li>
+	<li id="menu-item-2476" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children mh-navcat-8"><a href="https://www.analyticsvidhya.com/blog/category/business-intelligence/">Business Intelligence<span class="sub-ord-nav"> <i class="icon-right-open-mini"></i> </span></a>
+	<div class="nav-sub-wrap ord-nav"><div class="nsw"><div class="nav-sub-menus"><ul>
+		<li id="menu-item-2477" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-9"><a href="https://www.analyticsvidhya.com/blog/category/qlikview/">Qlikview</a></li>
+		<li id="menu-item-2479" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-25"><a href="https://www.analyticsvidhya.com/blog/category/web-analytics-2/">Web Analytics</a></li>
+	</ul></div></div></div>
+</li>
+	<li id="menu-item-2474" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-29"><a href="https://www.analyticsvidhya.com/blog/category/big-data/">Big data</a></li>
+	<li id="menu-item-27174" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-3118"><a href="https://www.analyticsvidhya.com/blog/category/stories/">Stories</a></li>
+	<li id="menu-item-18233" class="menu-item menu-item-type-taxonomy menu-item-object-category mh-navcat-2284"><a href="https://www.analyticsvidhya.com/blog/category/infographics/">Infographics</a></li>
+	<li id="menu-item-31580" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/glossary-of-common-statistics-and-machine-learning-terms/">Glossary</a>
+</li>
+</ul></div>
+</div></div>
+</li>
+<li id="menu-item-31593" class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-170"><a href="https://www.analyticsvidhya.com/jobs/">Jobs</a>
+</li>
+<li id="menu-item-7328" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/trainings/">Trainings</a>
+</li>
+<li id="menu-item-11881" class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><a href="https://discuss.analyticsvidhya.com/">Discuss</a>
+</li>
+<li id="menu-item-12170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mh-navcat-0 ord-nav-offset"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/">Learning Paths<span class="sub-ord-nav"> <i class="icon-down-open-mini"></i> </span></a><div class="nav-sub-wrap ord-nav"><div class="nsw">
+<div class="nav-sub-menus"><ul>
+	<li id="menu-item-12503" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-business-analyst-sas/">SAS Business Analyst</a>
+</li>
+	<li id="menu-item-14416" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-r-data-science/">LeaRn Data Science on R</a>
+</li>
+	<li id="menu-item-12171" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-data-science-python/">Data Science in Python</a>
+</li>
+	<li id="menu-item-13207" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/weka-gui-learn-machine-learning/">DATA SCIENCE IN WEKA</a>
+</li>
+	<li id="menu-item-23077" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/tableau-learning-path/">Data Visualization with Tableau</a>
+</li>
+	<li id="menu-item-12320" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/qlikview-learning-path/">Data Visualization with QlikView</a>
+</li>
+	<li id="menu-item-23078" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/newbie-d3-js-expert-complete-path-create-interactive-visualization-d3-js/">Interactive Data Stories with D3.js</a>
+</li>
+</ul></div>
+</div></div>
+</li>
+<li id="menu-item-20124" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mh-navcat-0 ord-nav-offset"><a href="https://datahack.analyticsvidhya.com/">DataHack<span class="sub-ord-nav"> <i class="icon-down-open-mini"></i> </span></a><div class="nav-sub-wrap ord-nav"><div class="nsw">
+<div class="nav-sub-menus"><ul>
+	<li id="menu-item-24638" class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><a href="https://datahack.analyticsvidhya.com/contest/all">Hackathons</a>
+</li>
+	<li id="menu-item-24639" class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-1915"><a href="https://www.analyticsvidhya.com/blog/category/events/">Events</a>
+</li>
+</ul></div>
+</div></div>
+</li>
+<li id="menu-item-22625" class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><a href="http://www.analyticsvidhya.com/about-me/write/">Write For Us</a>
+</li>
+<li id="menu-item-33282" class="menu-item menu-item-type-custom menu-item-object-custom mh-navcat-0"><a href="https://www.analyticsvidhya.com/datafest-2017"><span style="color:#e53907">Datafest 2017</span></a>
+</li>
+<li id="menu-item-24641" class="menu-item menu-item-type-post_type menu-item-object-page mh-navcat-0"><a href="https://www.analyticsvidhya.com/contact/">Contact Us</a>
+</li>
+</ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- end container -->
+
+            </div>
+            <!-- </div> -->
+            <!-- END MAIN NAV BAR -->
+
+            <!-- START PAGE WRAPPER -->
+            <div class="page-wrapper">
+                
+
+
+
+<!-- Running Text -->
+
+<div class="mh-el page-sidebar single-regular">                           
+	
+	<!-- start container -->
+	<div class="container">
+
+		
+		<div class="row">
+			<!-- Page -->
+			<div class="col-sm-8">
+
+				<div class="main-content">
+					
+					<!-- Breadcrumbs -->
+					<div class="maha-crumbs" prefix="v: http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="https://www.analyticsvidhya.com/" rel="v:url" property="v:title">Home</a></span> <i class="icon-right-open-mini"></i> <span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.analyticsvidhya.com/blog/category/business-analytics/">Business Analytics</a></span> <i class="icon-right-open-mini"></i> <span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/">Kaggle Bike Sharing Demand Prediction – How I got in top 5 percentile of participants?</a></span></div><!-- .breadcrumbs -->
+					
+						<article id="post-2729" class="main-content single-post-box" itemscope="" itemtype="http://schema.org/Article">
+
+							
+
+<header itemscope="" itemtype="http://schema.org/Blog">
+
+	
+	<!-- <meta itemprop="author" content="Sunil Ray"> -->
+	<meta itemprop="datecreated" content="2015-06-25T20:25:07+00:00">
+	<meta itemprop="image" content="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22.jpg">
+	<meta itemprop="about" content="">
+
+	
+	<h1 itemprop="name" class="entry-title">Kaggle Bike Sharing Demand Prediction – How I got in top 5 percentile of participants?</h1>
+	
+	<div class="hidden" itemscope="" itemtype="http://schema.org/Thing">
+		<span itemprop="name">Kaggle Bike Sharing Demand Prediction – How I got in top 5 percentile of participants?</span>
+	</div>
+
+	<div class="meta-count">
+				<span class="i-category"><a class="mh-elcat-5" href="https://www.analyticsvidhya.com/blog/category/business-analytics/" title="Business Analytics" rel="category">Business Analytics</a> <a class="mh-elcat-72" href="https://www.analyticsvidhya.com/blog/category/r/" title="R" rel="category">R</a> </span>
+	</div>
+
+	<div class="title-divider"></div>
+
+	<div class="meta-share">
+		<span class="header-font">SHARE </span>
+		<a class="social-facebook" href="http://www.facebook.com/sharer.php?u=https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/&amp;t=Kaggle%20Bike%20Sharing%20Demand%20Prediction%20%E2%80%93%20How%20I%20got%20in%20top%205%20percentile%20of%20participants?" title="Share on Facebook" target="_blank"><i class="icon-facebook"></i></a>
+		<a class="social-twitter" href="https://twitter.com/home?status=Kaggle%20Bike%20Sharing%20Demand%20Prediction%20%E2%80%93%20How%20I%20got%20in%20top%205%20percentile%20of%20participants?+https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/" title="Share on Twitter" target="_blank"><i class="icon-twitter"></i></a>
+		<a class="social-googleplus" href="https://plus.google.com/share?url=https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/" title="Share on Google+" target="_blank"><i class="icon-gplus"></i></a>
+		<a class="social-pinterest" href="http://pinterest.com/pin/create/button/?url=https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/&amp;media=https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22.jpg&amp;description=Kaggle%20Bike%20Sharing%20Demand%20Prediction%20%E2%80%93%20How%20I%20got%20in%20top%205%20percentile%20of%20participants?" title="Share on Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+	</div>
+
+	<div class="meta-info">
+		<span class="ava-auth">
+			<img width="14" height="14" class="entry-thumb" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/e3bea1e58e6e462c72b1684b66c7f99a" alt="" title="Sunil Ray" originals="48" scale="1.25">
+		</span>
+		<span itemprop="author" itemscope="" itemtype="http://schema.org/Person" class="entry-author">
+			<a href="https://www.analyticsvidhya.com/blog/author/sunil-ray/">
+				<span itemprop="name">Sunil Ray</span>
+			</a>
+		</span>, 
+		<time itemprop="datePublished" class="entry-date" content="2015-06-25" datetime="2015-06-25T20:25:07+00:00">
+			June 25, 2015		</time>
+				<span class="meta-info-divider">/</span>
+								<span class="meta-info-comments"><i class="icon-comment"></i><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comments">15 </a></span>
+			</div>
+</header>
+
+
+							
+							<div class="text-content">
+
+								
+								
+<!-- Quick Adsense WordPress Plugin: http://quicksense.net/ -->
+<div style="float:none;margin:10px 0 10px 0;text-align:center;">
+<a href="http://events.upxacademy.com/mlweek?utm_source=MLWeek%20AVBnr&amp;utm_medium=BanneraAd&amp;utm_campaign=MLWeek" target="_blank" rel="nofollow"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/18-apr-2017.gif" height="90" width="728" scale="0"></a>
+</div>
+<h2>Introduction</h2>
+<p>There are three types of people&nbsp;who&nbsp;take part in a <a href="https://www.analyticsvidhya.com/blog/2015/06/start-journey-kaggle/" target="_blank">Kaggle Competition</a>:</p>
+<p style="text-align: left; padding-left: 30px;"><em><strong>Type 1:</strong> Who are experts in machine learning and their motivation is to compete with the best data scientists across the globe. They aim to &nbsp;achieve the highest accuracy</em></p>
+<p style="text-align: left; padding-left: 30px;"><em><strong>Type 2:</strong> Who aren’t experts exactly, but participate to get better at machine learning. These people aim to learn from the experts and the discussions happening and hope to become better with time.</em></p>
+<p style="text-align: left; padding-left: 30px;"><em><strong>Type 3:</strong> Who are new to data science and still choose to participate and gain experience&nbsp;of solving a data science problem.</em></p>
+<p style="text-align: justify;">If you think you fall in Type 2 and Type 3,&nbsp;go ahead and check how I got close to rank 150. I would strongly recommend you to type out the code and follow the article as you go. This will help you develop your data science muscles and they will be in better shape in the next challenge. The more you practice, the faster you’ll learn.</p>
+<p style="text-align: justify;">And if you are a Type 1 player,&nbsp;please feel free to drop your approach applied in this competition in the comments section below. I would like to learn from you!</p>
+<p style="text-align: justify;">Kaggle Bike Sharing Competition went live for 366 days and ended on 29th May 2015.&nbsp;My efforts would have been incomplete, had I not been supported by <a href="https://www.linkedin.com/profile/view?id=380718542" target="_blank" rel="nofollow">Aditya Sharma</a>, IIT Guwahati (doing internship at Analytics Vidhya) in solving this competition.</p>
+<p><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/22.jpg"><img class="size-full wp-image-17896 aligncenter" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/22.jpg" alt="solution to bike sharing kaggle competition" width="600" height="450" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22.jpg 600w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22-300x225.jpg 300w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/22-83x63.jpg 83w" sizes="(max-width: 600px) 100vw, 600px"></a></p>
+<p>&nbsp;</p>
+<h2>Before you start – warming up to participate in Kaggle Competition</h2>
+<p>Here’s a quick approach to solve any Kaggle competition:</p>
+<ol>
+<li>Acquire basic data science skills (Statistics + &nbsp;Basic Algorithms)</li>
+<li>Get friendly with <a href="https://www.analyticsvidhya.com/blog/2015/02/data-exploration-preparation-model/" target="_blank">7 steps&nbsp;of Data Exploration</a></li>
+<li>Become proficient with any one of the language <a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/" target="_blank">Python, R or SAS</a>&nbsp;(or the tool of your choice).</li>
+<li>Identify the right competition first according to your skills. Here’s a good read:&nbsp;<a href="https://www.analyticsvidhya.com/blog/2015/06/start-journey-kaggle/" target="_blank">Kaggle Competitions: How and where to begin?</a></li>
+</ol>
+<p>&nbsp;</p>
+<h2>Kaggle Bike Sharing Demand&nbsp;Challenge</h2>
+<p style="text-align: justify;">In&nbsp;<a href="https://www.kaggle.com/c/bike-sharing-demand" target="_blank" rel="nofollow">Kaggle&nbsp;knowledge competition – Bike Sharing Demand</a>,&nbsp;the participants are asked to forecast bike&nbsp;rental demand of Bike sharing program in Washington, D.C based on&nbsp;historical usage&nbsp;patterns in relation with weather, time and other data.</p>
+<p style="text-align: justify;">Using these Bike Sharing&nbsp;systems, people rent a bike from one&nbsp;location and return it to a different or same place on need basis. People can rent a bike through membership (mostly regular users) or on demand basis (mostly casual users). This process is controlled by a network of automated kiosk across the city.</p>
+<p>&nbsp;</p>
+<h2 style="text-align: justify;">Solution</h2>
+<p>Here is the step by step solution of this competition:</p>
+<p>&nbsp;</p>
+<h3>Step 1. Hypothesis Generation</h3>
+<p style="text-align: justify;">Before exploring the data to understand&nbsp;the relationship between variables, I’d recommend you to focus on hypothesis generation first. Now, this might sound counter-intuitive for solving a data science problem, but if there is one thing I have learnt over years, it is this. Before exploring data, you should spend some time thinking about the business problem, gaining the domain knowledge and may be gaining first hand experience of the problem (only if I could travel to North America!)</p>
+<p style="text-align: justify;">How does it help? This practice usually helps you form better features later on, which are not biased by the data available in the dataset. At this stage, you are expected&nbsp;to posses <a href="https://www.analyticsvidhya.com/blog/2014/02/tools-structured-thinking/" target="_blank">structured thinking</a> i.e. a thinking process which takes into consideration all the possible aspects of a particular problem.</p>
+<p>Here are some of the hypothesis which I thought could influence the demand of bikes:</p>
+<ul>
+<li style="text-align: justify;"><strong>Hourly trend</strong>: There must be high demand during office timings. Early morning and late evening can have different trend (cyclist) and low demand during 10:00 pm to 4:00 am.</li>
+<li style="text-align: justify;"><strong>Daily Trend:&nbsp;</strong>Registered users demand more bike on weekdays as compared to weekend or holiday.</li>
+<li style="text-align: justify;"><strong>Rain: </strong>The demand of bikes will be lower&nbsp;on a rainy&nbsp;day as compared to a sunny&nbsp;day. Similarly, higher humidity will cause to lower the demand and vice versa.</li>
+<li style="text-align: justify;"><strong>Temperature: </strong>In India, temperature has negative correlation with bike demand. But, after&nbsp;looking at&nbsp;Washington’s temperature graph, I presume&nbsp;it may have positive correlation.</li>
+<li style="text-align: justify;"><strong>Pollution: </strong>If the pollution level in a city starts soaring, people may start using Bike (it may be influenced by government / company policies or increased awareness).</li>
+<li style="text-align: justify;"><strong>Time:&nbsp;</strong>Total demand should have higher contribution of registered user as compared to casual because registered user base would&nbsp;increase over time.</li>
+<li style="text-align: justify;"><strong>Traffic:&nbsp;</strong>It<strong>&nbsp;</strong>can be positively correlated with Bike demand. Higher traffic may&nbsp;force people to use bike as compared to other road transport medium like car, taxi&nbsp;etc</li>
+</ul>
+<p>&nbsp;</p>
+<h3>2. Understanding the Data Set</h3>
+<p style="text-align: justify;">The dataset shows hourly rental data for two years (2011 and 2012). The training data set is for the first 19&nbsp;days of each month. The test dataset is from 20th day to month’s end. We are required&nbsp;to&nbsp;predict the total count of bikes rented&nbsp;during each hour covered by the test set.</p>
+<p style="text-align: justify;">In the training data set, they have separately given bike demand by registered, casual users and sum of both is given as count.</p>
+<p style="text-align: justify;">Training data set has 12&nbsp;variables (see below) and Test has 9 (excluding registered, casual and count).</p>
+<p style="text-align: justify;"><strong>Independent Variables</strong></p>
+<pre><strong>datetime:   </strong>date and hour in "mm/dd/yyyy hh:mm" format
+<strong>season:</strong> &nbsp;   Four categories-&gt; 1 = spring, 2 = summer, 3 = fall, 4 = winter
+<strong>holiday:</strong>    whether the day is a holiday or not (1/0)
+<strong>workingday:</strong> whether the day is neither a weekend nor holiday (1/0)
+<strong>weather:</strong>&nbsp;   Four Categories of weather
+            1-&gt; Clear, Few clouds, Partly cloudy, Partly cloudy
+            2-&gt; Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist
+            3-&gt; Light Snow and Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds
+            4-&gt; Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog
+<strong>temp:</strong>       hourly temperature in Celsius
+<strong>atemp:</strong>      "feels like" temperature in Celsius
+<strong>humidity:</strong>   relative humidity
+<strong>windspeed:</strong>  wind speed
+</pre>
+<p><strong>Dependent Variables</strong></p>
+<pre><strong>registered:</strong> number of registered user
+<strong>casual:</strong>     number of non-registered user
+<strong>count:</strong>      number of total rentals (registered + casual)
+</pre>
+<p>&nbsp;</p>
+<h3>3. Importing Data set and Basic Data Exploration</h3>
+<p>For this solution, I&nbsp;have used&nbsp;R (R Studio 0.99.442) in Windows Environment.</p>
+<p>Below are the steps to import and perform data exploration.&nbsp;If you are new to this concept, you can refer this guide on&nbsp;<a href="https://www.analyticsvidhya.com/blog/2015/04/comprehensive-guide-data-exploration-r/" target="_blank">Data Exploration in R</a></p>
+<ol>
+<li>Import Train and Test Data Set
+<pre>setwd("E:/kaggle data/bike sharing")
+train=read.csv("train_bike.csv")
+test=read.csv("test_bike.csv")</pre>
+</li>
+<li>Combine both Train and Test Data set (to understand the distribution of independent variable together).
+<pre>test$registered=0
+test$casual=0
+test$count=0
+data=rbind(train,test)</pre>
+<p>Before combing test and train data set, I have made the structure similar for both.</p></li>
+<li>Variable Type Identification
+<pre>str(data)
+'data.frame':&nbsp; 17379 obs. of&nbsp; 12 variables:
+$ datetime&nbsp; : Factor w/ 17379 levels "2011-01-01 00:00:00",..: 1 2 3 4 5 6 7 8 9 10 ...
+$ season&nbsp;&nbsp;&nbsp; : int&nbsp; 1 1 1 1 1 1 1 1 1 1 ...
+$ holiday&nbsp;&nbsp; : int&nbsp; 0 0 0 0 0 0 0 0 0 0 ...
+$ workingday: int&nbsp; 0 0 0 0 0 0 0 0 0 0 ...
+$ weather&nbsp;&nbsp; : int&nbsp; 1 1 1 1 1 2 1 1 1 1 ...
+$ temp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : num&nbsp; 9.84 9.02 9.02 9.84 9.84 ...
+$ atemp&nbsp;&nbsp;&nbsp;&nbsp; : num&nbsp; 14.4 13.6 13.6 14.4 14.4 ...
+$ humidity&nbsp; : int&nbsp; 81 80 80 75 75 75 80 86 75 76 ...
+$ windspeed : num&nbsp; 0 0 0 0 0 ...
+$ casual&nbsp;&nbsp;&nbsp; : num&nbsp; 3 8 5 3 0 0 2 1 1 8 ...
+$ registered: num&nbsp; 13 32 27 10 1 1 0 2 7 6 ...
+$ count&nbsp;&nbsp;&nbsp;&nbsp; : num&nbsp; 16 40 32 13 1 1 2 3 8 14 ...</pre>
+</li>
+<li>Find missing values in data set if any.
+<pre>table(is.na(data))
+
+FALSE
+208548</pre>
+<p>Above you can see that it has returned no missing values in the data frame.</p></li>
+<li style="text-align: justify;">Understand the distribution of numerical variables and generate a frequency table for numeric variables. &nbsp;Now, I’ll test and plot a histogram for each numerical variables and analyze the&nbsp;distribution.
+<pre>par(mfrow=c(4,2))
+par(mar = rep(2, 4))
+hist(data$season)
+hist(data$weather)
+hist(data$humidity)
+hist(data$holiday)
+hist(data$workingday)
+hist(data$temp)
+hist(data$atemp)
+hist(data$windspeed)</pre>
+<p><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/parmfrow.png"><img class="aligncenter wp-image-17856 " src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/parmfrow.png" alt="parmfrow" width="788" height="495" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/parmfrow.png 839w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/parmfrow-300x188.png 300w" sizes="(max-width: 788px) 100vw, 788px"></a>Few&nbsp;inferences can be drawn&nbsp;by looking at the these&nbsp;histograms:</p>
+<ul>
+<li>Season has four categories of almost equal distribution</li>
+<li>Weather 1 has higher contribution i.e. mostly clear weather.
+<pre>prop.table(table(data$weather))
+1     2      3      4
+0.66  0.26   0.08   0.00</pre>
+</li>
+<li style="text-align: justify;">As expected, mostly working days and variable holiday is also showing&nbsp;a&nbsp;similar inference. You can use the code above to&nbsp;look at the distribution in detail. Here you can generate a variable for weekday using holiday and working day. Incase, if both have zero values, then it must be a working day.</li>
+<li>Variables temp, atemp, humidity and windspeed &nbsp;looks naturally distributed.</li>
+</ul>
+</li>
+<li style="text-align: justify;">Convert discrete variables into factor (season, weather, holiday, workingday)
+<pre>data$season=as.factor(data$season)
+data$weather=as.factor(data$weather)
+data$holiday=as.factor(data$holiday)
+data$workingday=as.factor(data$workingday)</pre>
+</li>
+</ol>
+<p>&nbsp;</p>
+<h3>4. Hypothesis Testing (using multivariate analysis)</h3>
+<p style="text-align: justify;"><span style="color: #333333;"><span style="font-family: Georgia, &#39;Times New Roman&#39;, &#39;Bitstream Charter&#39;, Times, serif;"><span style="font-size: medium;">Till now, we have got a fair understanding of&nbsp;the data set. Now, let’s test the hypothesis which we had&nbsp;generated earlier. &nbsp;Here I&nbsp;have added some additional hypothesis from the dataset.&nbsp;Let’s test them one by one:</span></span></span></p>
+<ul>
+<li style="text-align: justify;"><strong>Hourly trend</strong>:&nbsp;We don’t have the variable ‘hour’ with us right now. But we can extract it using the datetime column.
+<pre>data$hour=substr(data$datetime,12,13)
+data$hour=as.factor(data$hour)</pre>
+<p>Let’s plot the hourly trend of count&nbsp;over hours and check if&nbsp;our hypothesis is correct or not.&nbsp;We will separate train and test data set from combined one.</p>
+<pre>train=data[as.integer(substr(data$datetime,9,10))&lt;20,]
+test=data[as.integer(substr(data$datetime,9,10))&gt;19,]
+
+boxplot(train$count~train$hour,xlab="hour", ylab="count of users")</pre>
+<pre><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/Count_Hour.png"><img class="aligncenter wp-image-17861 " src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/Count_Hour.png" alt="Count_Hour" width="501" height="291" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/Count_Hour.png 655w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/Count_Hour-300x174.png 300w" sizes="(max-width: 501px) 100vw, 501px"></a></pre>
+<p>Above, you can see the trend of bike demand over hours. Quickly, I’ll segregate the bike demand in three categories:</p>
+<ul>
+<li style="text-align: justify;">High &nbsp; &nbsp; &nbsp; : 7-9 and 17-19 hours</li>
+<li style="text-align: justify;">Average &nbsp;: 10-16 hours</li>
+<li style="text-align: justify;">Low &nbsp; &nbsp; &nbsp; &nbsp; : 0-6 and 20-24 hours</li>
+</ul>
+<p>Here I have analyzed&nbsp;the distribution of total bike demand. Let’s look at&nbsp;the distribution of registered and casual users separately.<a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/18.png"><img class="aligncenter wp-image-17862 size-full" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/18.png" alt="1" width="798" height="234" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/18.png 798w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/18-300x88.png 300w" sizes="(max-width: 798px) 100vw, 798px"></a>Above you can see that registered users have similar trend as count. Whereas, casual users have different trend. Thus,&nbsp;we can say that ‘hour’ is significant variable and our hypothesis is ‘true’.</p>
+<p>You might have noticed that there are a lot of outliers while plotting the count of registered and casual users. These values are not generated due to error, so we consider them&nbsp;as natural outliers. They might be a result of groups of people taking up cycling (who are not registered). To&nbsp;treat such&nbsp;outliers, we will use logarithm transformation. Let’s look at the similar plot after log transformation.</p>
+<pre> boxplot(log(train$count)~train$hour,xlab="hour",ylab="log(count)")</pre>
+<p><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/logcount.png"><img class="aligncenter wp-image-17863 size-full" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/logcount.png" alt="logcount" width="706" height="310" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/logcount.png 706w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/logcount-300x132.png 300w" sizes="(max-width: 706px) 100vw, 706px"></a></p></li>
+<li style="text-align: justify;"><strong>Daily Trend:&nbsp;</strong>Like Hour, we will generate a variable for day from datetime variable and after that we’ll plot it.
+<pre>date=substr(data$datetime,1,10)
+days&lt;-weekdays(as.Date(date))
+data$day=days
+</pre>
+<p>Plot shows registered and casual users’ demand over days.<br>
+<a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/21.png"><img class="aligncenter wp-image-17864 " src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/21.png" alt="2" width="830" height="213" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/21.png 733w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/21-300x77.png 300w" sizes="(max-width: 830px) 100vw, 830px"></a>While looking at the plot, I can say that the demand of causal users&nbsp;increases over&nbsp;weekend.</p></li>
+<li style="text-align: justify;"><strong><strong>Rain:&nbsp;</strong></strong>We don’t have the ‘rain’ variable with us but have ‘weather’ which is sufficient to test our hypothesis. As per variable description, weather 3 represents light rain and weather 4 represents heavy rain. Take a look&nbsp;at the plot:<a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/41.png"><img class="aligncenter wp-image-17867 size-full" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/41.png" alt="4" width="727" height="189" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/41.png 727w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/41-300x78.png 300w" sizes="(max-width: 727px) 100vw, 727px"></a>It is clearly satisfying our hypothesis.</li>
+</ul>
+<ul>
+<li style="text-align: justify;"><strong>Temperature, Windspeed and Humidity:&nbsp;</strong>These are continuous variables so we can look at the correlation factor to validate hypothesis.
+<pre>sub=data.frame(train$registered,train$casual,train$count,train$temp,train$humidity,train$atemp,train$windspeed)
+cor(sub)</pre>
+<p><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/51.png"><img class="aligncenter wp-image-17875 size-full" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/51.png" alt="5" width="786" height="170" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/51.png 786w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/51-300x65.png 300w" sizes="(max-width: 786px) 100vw, 786px"><br>
+</a>Here are a few inferences you can draw by looking at the above histograms:</p>
+<ul>
+<li style="text-align: justify;">Variable temp is positively correlated with dependent variables (casual is more compare to registered)</li>
+<li style="text-align: justify;">Variable atemp is highly correlated with temp.</li>
+<li style="text-align: justify;">Windspeed has lower correlation as compared to temp and humidity</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li style="text-align: justify;"><strong><strong>Time:&nbsp;</strong></strong>Let’s extract year of each observation from the datetime column and see the trend of bike demand over year.
+<pre>data$year=substr(data$datetime,1,4)
+data$year=as.factor(data$year)
+train=data[as.integer(substr(data$datetime,9,10))&lt;20,]
+test=data[as.integer(substr(data$datetime,9,10))&gt;19,]
+boxplot(train$count~train$year,xlab="year", ylab="count")</pre>
+<pre><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/year.png"><img class="aligncenter wp-image-17873 " src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/year.png" alt="year" width="580" height="265" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/year.png 722w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/year-300x137.png 300w" sizes="(max-width: 580px) 100vw, 580px"></a></pre>
+<p>You can see that 2012 has higher&nbsp;bike demand as compared to 2011.</p></li>
+<li style="text-align: justify;"><strong><strong>Pollution &amp; Traffic:&nbsp;</strong></strong>We don’t have the variable related with these metrics in our data set so we cannot&nbsp;test&nbsp;this hypothesis.</li>
+</ul>
+<p>&nbsp;</p>
+<h3>5. Feature Engineering</h3>
+<p>In addition to existing independent variables, we will create new variables to improve the prediction power of model. Initially, you must have&nbsp;noticed that we generated new variables like hour, month, day and year.</p>
+<p>Here we will create more variables, let’s look at the some of these:</p>
+<ul>
+<li><strong>Hour Bins:&nbsp;</strong>Initially, we have broadly categorize the hour into three categories.&nbsp;Let’s create bins for the hour variable&nbsp;separately for casual and registered users. Here we will use <a href="https://www.analyticsvidhya.com/blog/2015/01/decision-tree-simplified/" target="_blank">decision tree</a> to find the accurate bins.
+<pre>train$hour=as.integer(train$hour) # convert hour to integer
+test$hour=as.integer(test$hour) # modifying in both train and test data set</pre>
+<p>We use the library rpart for decision tree algorithm.</p>
+<pre>library(rpart)
+library(rattle)&nbsp;#these libraries will be used to get a good visual plot for the decision tree model.&nbsp;
+library(rpart.plot)
+library(RColorBrewer)
+d=rpart(registered~hour,data=train)
+fancyRpartPlot(d)</pre>
+</li>
+</ul>
+<p style="padding-left: 30px;"><a href="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/61.png"><img class="aligncenter wp-image-17876 size-full" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/61.png" alt="6" width="579" height="340" srcset="https://www.analyticsvidhya.com/wp-content/uploads/2015/06/61.png 579w, https://www.analyticsvidhya.com/wp-content/uploads/2015/06/61-300x176.png 300w" sizes="(max-width: 579px) 100vw, 579px"></a><br>
+Now, looking at the nodes we can create different hour bucket for registered users.</p>
+<pre style="padding-left: 30px;">data=rbind(train,test)
+data$dp_reg=0
+data$dp_reg[data$hour&lt;8]=1
+data$dp_reg[data$hour&gt;=22]=2
+data$dp_reg[data$hour&gt;9 &amp; data$hour&lt;18]=3
+data$dp_reg[data$hour==8]=4
+data$dp_reg[data$hour==9]=5
+data$dp_reg[data$hour==20 | data$hour==21]=6
+data$dp_reg[data$hour==19 | data$hour==18]=7
+</pre>
+<p style="padding-left: 30px;">Similarly, we can create day_part for casual users also (dp_cas).</p>
+<ul>
+<li><strong>Temp Bins: &nbsp;</strong>Using similar methods, we have created bins for temperature for both registered and casuals users. Variables created are (temp_reg and temp_cas).</li>
+<li><strong>Year Bins:&nbsp;</strong>We had a hypothesis that bike demand will increase over time and we have proved it also. Here I have created 8 bins (quarterly) for two years. Jan-Mar 2011 as 1 …..Oct-Dec2012 as 8.
+<pre>data$year_part[data$year=='2011']=1
+data$year_part[data$year=='2011' &amp; data$month&gt;3]=2
+data$year_part[data$year=='2011' &amp; data$month&gt;6]=3
+data$year_part[data$year=='2011' &amp; data$month&gt;9]=4
+data$year_part[data$year=='2012']=5
+data$year_part[data$year=='2012' &amp; data$month&gt;3]=6
+data$year_part[data$year=='2012' &amp; data$month&gt;6]=7
+data$year_part[data$year=='2012' &amp; data$month&gt;9]=8
+table(data$year_part)</pre>
+</li>
+<li><strong>Day Type: </strong>Created a variable having categories like “weekday”, “weekend” and “holiday”.
+<pre>data$day_type=""
+data$day_type[data$holiday==0 &amp; data$workingday==0]="weekend"
+data$day_type[data$holiday==1]="holiday"
+data$day_type[data$holiday==0 &amp; data$workingday==1]="working day"</pre>
+</li>
+<li><strong>Weekend:&nbsp;</strong>Created a separate variable for weekend (0/1)
+<pre>data$weekend=0
+data$weekend[data$day=="Sunday" | data$day=="Saturday"&nbsp;]=1</pre>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3>6. Model Building</h3>
+<p style="text-align: justify;">As this was our first attempt, we applied decision tree, conditional inference tree and <a href="https://www.analyticsvidhya.com/blog/2014/06/introduction-random-forest-simplified/" target="_blank">random forest algorithms</a> and found that random forest is performing the best. You can also go with regression, boosted regression, neural network and find which one is working well for you.</p>
+<p>Before executing the random forest model code, I have followed following steps:</p>
+<ul>
+<li>Convert discrete variables into factor (weather, season, hour, holiday, working day, month, day)</li>
+</ul>
+<pre style="padding-left: 30px;">train$hour=as.factor(train$hour)
+test$hour=as.factor(test$hour)
+</pre>
+<ul>
+<li>As we know that dependent variables have natural outliers so we will predict log of dependent variables.</li>
+<li>Predict bike demand&nbsp;registered and casual users separately.<br>
+y1=log(casual+1) and y2=log(registered+1), Here we have added 1 to deal with zero values in the casual and registered columns.</li>
+</ul>
+<pre style="padding-left: 30px;">#predicting the log of registered users.
+set.seed(415)
+fit1 &lt;- randomForest(logreg ~ hour +workingday+day+holiday+ day_type +temp_reg+humidity+atemp+windspeed+season+weather+dp_reg+weekend+year+year_part, data=train,importance=TRUE, ntree=250)
+pred1=predict(fit1,test)
+test$logreg=pred1</pre>
+<pre style="padding-left: 30px;">#predicting the log of casual users.</pre>
+<pre style="padding-left: 30px;">set.seed(415)
+fit2 &lt;- randomForest(logcas ~hour + day_type+day+humidity+atemp+temp_cas+windspeed+season+weather+holiday+workingday+dp_cas+weekend+year+year_part, data=train,importance=TRUE, ntree=250)
+pred2=predict(fit2,test)
+test$logcas=pred2</pre>
+<p style="padding-left: 30px;">Re-transforming the predicted variables and then writing the output of count to the file submit.csv</p>
+<pre style="padding-left: 30px;">test$registered=exp(test$logreg)-1
+test$casual=exp(test$logcas)-1
+test$count=test$casual+test$registered
+s&lt;-data.frame(datetime=test$datetime,count=test$count)
+write.csv(s,file="submit.csv",row.names=FALSE)</pre>
+<p style="text-align: justify;">After following the steps mentioned above, you can score 0.38675 on Kaggle leaderboard i.e. top 5 percentile of total participants. As you might have seen, we have not applied&nbsp;any extraordinary science in getting to this level. But, the real competition starts here. I would like to see, if I can improve this further by use of more features and some more advanced modeling techniques.</p>
+<p>&nbsp;</p>
+<h2>End Notes</h2>
+<p style="text-align: justify;">In this article, we have looked at structured approach of problem solving and how this method can&nbsp;help you to improve performance. I would&nbsp;recommend you to generate hypothesis before you deep dive in the data set as this technique will not limit your thought process. You can improve your performance by applying advanced techniques (or ensemble methods) and understand your data trend better.</p>
+<p>You can find the complete solution here : <a href="https://github.com/adityashrm21/Kaggle/blob/master/Bike_Sharing_Demand.R" target="_blank" rel="nofollow">GitHub Link</a></p>
+<p>Have you participated in any Kaggle problem? &nbsp;Did you see any significant benefits by doing the same? Do let us know your thoughts about this guide in the comments section below.</p>
+<h3>If you like what you just read &amp; want to continue your analytics learning,&nbsp;<a href="http://feedburner.google.com/fb/a/mailverify?uri=analyticsvidhya" target="_blank" rel="nofollow">subscribe to our emails</a>,&nbsp;<a href="http://twitter.com/analyticsvidhya" target="_blank" rel="nofollow">follow us on twitter</a>&nbsp;or like our&nbsp;<a href="http://facebook.com/analyticsvidhya" target="_blank" rel="nofollow">facebook&nbsp;page</a>.</h3>
+
+<div style="font-size:0px;height:0px;line-height:0px;margin:0;padding:0;clear:both"></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-17900" class="share-linkedin sd-button share-icon no-text" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span><span class="share-count">181</span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)<span class="share-count">181</span></span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-17900" class="share-facebook sd-button share-icon no-text" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span><span class="share-count">6</span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)<span class="share-count">6</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-17900" class="share-google-plus-1 sd-button share-icon no-text" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-17900" class="share-twitter sd-button share-icon no-text" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-pocket"><a rel="nofollow" data-shared="" class="share-pocket sd-button share-icon no-text" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?share=pocket&amp;nb=1" target="_blank" title="Click to share on Pocket"><span></span><span class="sharing-screen-reader-text">Click to share on Pocket (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90_site -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5229672700622157" data-ad-slot="7938033629"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="22215" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://www.analyticsvidhya.com/blog/2015/12/special-year-resolutions-data-scientist/" title="New Year Resolutions for a Data Scientist
+
+Introduction   New Year is not just replacing your table calendar with a new one or waking up next morning rubbing your eyes. It&#39;s celebrating the joy of a new beginning. It gives a perfect reason to inculcate new habits. It is the arrival of new &#39;Hope&#39;. If you are reading this, I&#39;m sure data…" rel="nofollow" data-origin="17900" data-position="0"><img class="jp-relatedposts-post-img" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/newyear1.jpg" width="190" alt="New Year Resolutions for a Data Scientist" height="108" srcset="https://i0.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/12/newyear1.jpg?zoom=1.25&amp;resize=190%2C108&amp;ssl=1" src-orig="https://i0.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/12/newyear1.jpg?resize=350%2C200&amp;ssl=1" scale="1.25"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://www.analyticsvidhya.com/blog/2015/12/special-year-resolutions-data-scientist/" title="New Year Resolutions for a Data Scientist
+
+Introduction   New Year is not just replacing your table calendar with a new one or waking up next morning rubbing your eyes. It&#39;s celebrating the joy of a new beginning. It gives a perfect reason to inculcate new habits. It is the arrival of new &#39;Hope&#39;. If you are reading this, I&#39;m sure data…" rel="nofollow" data-origin="17900" data-position="0">New Year Resolutions for a Data Scientist</a></h4><p class="jp-relatedposts-post-excerpt">Introduction &nbsp; New Year is not just replacing your table calendar with a new one or waking up next morning rubbing your eyes.&nbsp;It's celebrating the joy of a new beginning. It gives a&nbsp;perfect reason&nbsp;to&nbsp;inculcate&nbsp;new habits. It is the arrival of new 'Hope'. If you are reading this, I'm sure data…</p><p class="jp-relatedposts-post-date" style="display: block;">December 30, 2015</p><p class="jp-relatedposts-post-context">In "Business Analytics"</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="15463" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://www.analyticsvidhya.com/blog/2015/04/pycon-montreal-2015-data-science-workshops/" title="PyCon Montreal 2015 tutorials - Hands-on way to learn Data Science in Python
+
+Introduction PyCon(s) carry a benevolent motive of helping the Python community worldwide by providing extensive knowledge resources. I started following PyCon conferences from 2013. My first learning experience from PyCon tutorials &amp; workshops inspired me to follow it back in the year 2014 and this craze continued in 2015 as well. You can…" rel="nofollow" data-origin="17900" data-position="1"><img class="jp-relatedposts-post-img" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/PyCon-Montreal-2015.jpg" width="190" alt="PyCon Montreal 2015 tutorials - Hands-on way to learn Data Science in Python" height="108" srcset="https://i2.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/04/PyCon-Montreal-2015.jpg?zoom=1.25&amp;resize=190%2C108&amp;ssl=1" src-orig="https://i2.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/04/PyCon-Montreal-2015.jpg?resize=350%2C200&amp;ssl=1" scale="1.25"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://www.analyticsvidhya.com/blog/2015/04/pycon-montreal-2015-data-science-workshops/" title="PyCon Montreal 2015 tutorials - Hands-on way to learn Data Science in Python
+
+Introduction PyCon(s) carry a benevolent motive of helping the Python community worldwide by providing extensive knowledge resources. I started following PyCon conferences from 2013. My first learning experience from PyCon tutorials &amp; workshops inspired me to follow it back in the year 2014 and this craze continued in 2015 as well. You can…" rel="nofollow" data-origin="17900" data-position="1">PyCon Montreal 2015 tutorials - Hands-on way to learn Data Science in Python</a></h4><p class="jp-relatedposts-post-excerpt">Introduction PyCon(s) carry&nbsp;a&nbsp;benevolent motive of helping the Python community worldwide by providing extensive knowledge resources.&nbsp;I started following PyCon conferences from 2013. My first learning experience from PyCon tutorials &amp; workshops inspired me to follow it back in the year 2014 and this craze continued in 2015 as well. You can…</p><p class="jp-relatedposts-post-date" style="display: block;">April 14, 2015</p><p class="jp-relatedposts-post-context">In "Python"</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-thumbs" data-post-id="21323" data-post-format="false"><a class="jp-relatedposts-post-a" href="https://www.analyticsvidhya.com/blog/2015/11/exclusive-interview-srk-sr-data-scientist-kaggle-rank-25/" title="Exclusive Interview with SRK, Sr. Data Scientist, Kaggle Rank 25
+
+Introduction It took him just 2 years to secure a rank in Kaggle Top 30 from scratch Mr. Sudalai Rajkumar a.k.a SRK, Sr. Data Scientist, Tiger Analytics has become a huge inspiration for aspiring data scientist around the world. I&#39;ve seen lots of people, driven by the spark of becoming a data…" rel="nofollow" data-origin="17900" data-position="2"><img class="jp-relatedposts-post-img" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/srk2.jpg" width="190" alt="Exclusive Interview with SRK, Sr. Data Scientist, Kaggle Rank 25" height="108" srcset="https://i2.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/11/srk2.jpg?zoom=1.25&amp;resize=190%2C108&amp;ssl=1" src-orig="https://i2.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/11/srk2.jpg?resize=350%2C200&amp;ssl=1" scale="1.25"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://www.analyticsvidhya.com/blog/2015/11/exclusive-interview-srk-sr-data-scientist-kaggle-rank-25/" title="Exclusive Interview with SRK, Sr. Data Scientist, Kaggle Rank 25
+
+Introduction It took him just 2 years to secure a rank in Kaggle Top 30 from scratch Mr. Sudalai Rajkumar a.k.a SRK, Sr. Data Scientist, Tiger Analytics has become a huge inspiration for aspiring data scientist around the world. I&#39;ve seen lots of people, driven by the spark of becoming a data…" rel="nofollow" data-origin="17900" data-position="2">Exclusive Interview with SRK, Sr. Data Scientist, Kaggle Rank 25</a></h4><p class="jp-relatedposts-post-excerpt">Introduction It took him just 2 years to secure a rank in Kaggle Top 30 from scratch Mr. Sudalai Rajkumar a.k.a SRK, Sr. Data Scientist, Tiger Analytics&nbsp;has become a&nbsp;huge inspiration for aspiring data scientist around the world. I've seen lots of people, driven by the spark of becoming a data…</p><p class="jp-relatedposts-post-date" style="display: block;">November 11, 2015</p><p class="jp-relatedposts-post-context">In "Business Analytics"</p></div></div></div>
+															</div>
+
+							<footer class="clearfix both">
+								<div class="meta-tags clearfix">
+									Tags: <a href="https://www.analyticsvidhya.com/blog/tag/bike-sharing-solution/" rel="tag">bike sharing solution</a>, <a href="https://www.analyticsvidhya.com/blog/tag/data-exploration/" rel="tag">data exploration</a>, <a href="https://www.analyticsvidhya.com/blog/tag/feature-engineering/" rel="tag">feature engineering</a>, <a href="https://www.analyticsvidhya.com/blog/tag/hypothesis-generation/" rel="tag">hypothesis generation</a>, <a href="https://www.analyticsvidhya.com/blog/tag/kaggle/" rel="tag">kaggle</a>, <a href="https://www.analyticsvidhya.com/blog/tag/model-building/" rel="tag">Model building</a>, <a href="https://www.analyticsvidhya.com/blog/tag/multivariate/" rel="tag">multivariate</a>, <a href="https://www.analyticsvidhya.com/blog/tag/univariate/" rel="tag">Univariate</a>								
+</div>
+
+								<div class="one-divider"></div>
+								
+								<div class="next-prev">
+														
+																		<a class="next" href="https://www.analyticsvidhya.com/blog/2015/06/analytics-interview-behaviour-to-avoid/" rel="next"><i class="icon-right-open-big"></i><div class="np-caption">Next Article</div><div class="np-title">Beware – interviewer for analytics job is observing you closely!</div></a>									
+																		<a class="prev" href="https://www.analyticsvidhya.com/blog/2015/06/senior-consultant-equifax-bangalore-3-5-years-experience/" rel="prev"><i class="icon-left-open-big"></i><div class="np-caption">Previous Article</div><div class="np-title">Senior Consultant – Equifax – Bangalore (3 – 5 years of experience)</div></a>									
+								</div>
+
+								<div class="meta-author">
+									<div class="author-thumb">
+										<a itemprop="author" href="https://www.analyticsvidhya.com/blog/author/sunil-ray/">
+											<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/e3bea1e58e6e462c72b1684b66c7f99a(1)" srcset="https://secure.gravatar.com/avatar/e3bea1e58e6e462c72b1684b66c7f99a?s=400&amp;d=mm&amp;r=g 2x" class="avatar avatar-200 photo" height="200" width="200" originals="200" scale="1.25">										</a>
+									</div>
+
+									<div class="author-info">
+										<div class="np-caption">Author</div>
+										<div class="author-name">
+											<a itemprop="author" href="https://www.analyticsvidhya.com/blog/author/sunil-ray/">Sunil Ray</a>
+										</div>
+										<div class="author-desc">
+											<span class="fn">I am a Business Analytics and Intelligence professional with deep experience in the Indian Insurance industry. I have worked for various multi-national Insurance companies in last 7 years.</span>
+										</div>
+										<ul class="author-links">
+																					</ul>
+									</div>
+								</div>
+ 								
+							</footer>
+						</article> <!-- /.post -->
+											<!-- Comment -->
+					
+<!-- You can start editing here. -->
+
+  <!-- Block Cap -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="block-cap" id="comments">
+        <h3 id="comment">15 Comments</h3>
+      </div>
+    </div>
+  </div>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ul class="comment-list">
+				<li class="comment byuser comment-author-ramesh_ramachandran even thread-even depth-1" id="comment-89257">
+				<div id="div-comment-89257" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/6d59a92e51f481f7bca39dd9a8c40335" srcset="https://secure.gravatar.com/avatar/6d59a92e51f481f7bca39dd9a8c40335?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn"><a href="https://www.facebook.com/app_scoped_user_id/10205895316875754/" rel="external nofollow" class="url">Ramesh Ramachandran</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89257">
+			June 26, 2015 at 4:56 am</a>		</div>
+
+		<p>Superb</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89257#respond" onclick="return addComment.moveForm( &quot;div-comment-89257&quot;, &quot;89257&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Ramesh Ramachandran">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-shyam_naren odd alt thread-odd thread-alt depth-1" id="comment-89264">
+				<div id="div-comment-89264" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/d966cff74489469e1b0465dffd668b0d" srcset="https://secure.gravatar.com/avatar/d966cff74489469e1b0465dffd668b0d?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn"><a href="https://www.facebook.com/app_scoped_user_id/10153448013327953/" rel="external nofollow" class="url">Shyam Naren</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89264">
+			June 26, 2015 at 5:49 am</a>		</div>
+
+		<p>Hats off – Thanks a ton for sharing this.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89264#respond" onclick="return addComment.moveForm( &quot;div-comment-89264&quot;, &quot;89264&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Shyam Naren">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-89273">
+				<div id="div-comment-89273" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/6b725ec2ff2c687407fabb7b38c37d11" srcset="https://secure.gravatar.com/avatar/6b725ec2ff2c687407fabb7b38c37d11?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Abhishek anand</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89273">
+			June 26, 2015 at 8:23 am</a>		</div>
+
+		<p>Great work!! Do share any other approach u find.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89273#respond" onclick="return addComment.moveForm( &quot;div-comment-89273&quot;, &quot;89273&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Abhishek anand">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-89275">
+				<div id="div-comment-89275" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/6368e2737dc10c8ff072eb0b78f4f8ee" srcset="https://secure.gravatar.com/avatar/6368e2737dc10c8ff072eb0b78f4f8ee?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Pradeep</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89275">
+			June 26, 2015 at 8:55 am</a>		</div>
+
+		<p>Thanks a lot for sharing.  As a beginner, it helps a lot to understand different steps involved before submitting the results.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89275#respond" onclick="return addComment.moveForm( &quot;div-comment-89275&quot;, &quot;89275&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Pradeep">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-babasomanath even thread-even depth-1" id="comment-89278">
+				<div id="div-comment-89278" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/83dfef17bb9a4f9fbc3a589cea83a2a1" srcset="https://secure.gravatar.com/avatar/83dfef17bb9a4f9fbc3a589cea83a2a1?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">babaSomanath</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89278">
+			June 26, 2015 at 9:20 am</a>		</div>
+
+		<p>Please never make this post archived. Really a helpful post. I find this just awesome. Thank you so much.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89278#respond" onclick="return addComment.moveForm( &quot;div-comment-89278&quot;, &quot;89278&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to babaSomanath">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-89280">
+				<div id="div-comment-89280" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/c2a64a8abd6ad00a3166b001a8328837" srcset="https://secure.gravatar.com/avatar/c2a64a8abd6ad00a3166b001a8328837?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn"><a href="http://chaosmail.at/" rel="external nofollow" class="url">Christoph Körner</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89280">
+			June 26, 2015 at 9:49 am</a>		</div>
+
+		<p>Thanks a lot for sharing, it is super interesting to read!<br>
+What do you usually do when you see that variables are correlated?<br>
+Best,<br>
+Christoph</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89280#respond" onclick="return addComment.moveForm( &quot;div-comment-89280&quot;, &quot;89280&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Christoph Körner">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-89307">
+				<div id="div-comment-89307" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/d4a34971a152926be825cb501a6394c2" srcset="https://secure.gravatar.com/avatar/d4a34971a152926be825cb501a6394c2?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Sunil Kappal</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89307">
+			June 26, 2015 at 7:25 pm</a>		</div>
+
+		<p>Thanks for sharing the solution…what are your thoughts on using Rattle for these activities!!!</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89307#respond" onclick="return addComment.moveForm( &quot;div-comment-89307&quot;, &quot;89307&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Sunil Kappal">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-89314">
+				<div id="div-comment-89314" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/b40a706d6b7804d6341cdcb2a316ccf9" srcset="https://secure.gravatar.com/avatar/b40a706d6b7804d6341cdcb2a316ccf9?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Sadiq</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89314">
+			June 26, 2015 at 10:35 pm</a>		</div>
+
+		<p>Exactly what I have searched for all this while. Great piece! Thanks a lot.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89314#respond" onclick="return addComment.moveForm( &quot;div-comment-89314&quot;, &quot;89314&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Sadiq">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-santhosh_kolloju even thread-even depth-1" id="comment-89458">
+				<div id="div-comment-89458" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/5c09d9d7a24e5f7aa278d8ce792b6435" srcset="https://secure.gravatar.com/avatar/5c09d9d7a24e5f7aa278d8ce792b6435?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Santhosh Kolloju</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89458">
+			June 29, 2015 at 10:14 am</a>		</div>
+
+		<p>great work very helpful</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89458#respond" onclick="return addComment.moveForm( &quot;div-comment-89458&quot;, &quot;89458&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Santhosh Kolloju">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-89459">
+				<div id="div-comment-89459" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/2f0199d5fd17f4a16e5f17e1bd3020de" srcset="https://secure.gravatar.com/avatar/2f0199d5fd17f4a16e5f17e1bd3020de?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Krishna Mohan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89459">
+			June 29, 2015 at 10:41 am</a>		</div>
+
+		<p>The more I read and practice such exercises, the more I am able to get over the fear of data.  Appreciate all the great work.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89459#respond" onclick="return addComment.moveForm( &quot;div-comment-89459&quot;, &quot;89459&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Krishna Mohan">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-89698">
+				<div id="div-comment-89698" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/f0da0b23719e5e4b3f6fb489a4f1f393" srcset="https://secure.gravatar.com/avatar/f0da0b23719e5e4b3f6fb489a4f1f393?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Amol Gothe</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-89698">
+			July 3, 2015 at 2:24 pm</a>		</div>
+
+		<p>Hi Sunil,<br>
+This is a fantastic piece and really appreciated that you shared your work with us. I tried these codes myself for practice and I had one question with regards to the separation of the test and train datasets from the combined dataset can you please explain the arguments in that code (the way I interpreted this piece of code is that as the traning dataset is from 20th day to last day of the month hence the &lt;20 and the same explanation test dataset). When I tried them at my end I see all the combined observations in the train dataset and the test dataset is empty.</p>
+<p>Please help as I might be going wrong somewhere.</p>
+<p>Regards</p>
+<p>Amol</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=89698#respond" onclick="return addComment.moveForm( &quot;div-comment-89698&quot;, &quot;89698&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Amol Gothe">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-90976">
+				<div id="div-comment-90976" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/9356b13ae5ebbedfd697a4ddc8ea1f23" srcset="https://secure.gravatar.com/avatar/9356b13ae5ebbedfd697a4ddc8ea1f23?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Varun</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-90976">
+			July 23, 2015 at 5:44 am</a>		</div>
+
+		<p>Thanks man..u guys rock.</p>
+<p>Just one thing… where can i download the data for this competition…can u share the link as well.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=90976#respond" onclick="return addComment.moveForm( &quot;div-comment-90976&quot;, &quot;90976&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Varun">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-96960">
+				<div id="div-comment-96960" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/1ba1532cb28797cbceccf1560571e3c8" srcset="https://secure.gravatar.com/avatar/1ba1532cb28797cbceccf1560571e3c8?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Vinod</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-96960">
+			October 9, 2015 at 8:24 am</a>		</div>
+
+		<p>rattle library is not working on latest version of  Rstudio . Please suggest alternative.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=96960#respond" onclick="return addComment.moveForm( &quot;div-comment-96960&quot;, &quot;96960&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Vinod">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-102126">
+				<div id="div-comment-102126" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/d8d0881ecbb9029600759130cda28a8f" srcset="https://secure.gravatar.com/avatar/d8d0881ecbb9029600759130cda28a8f?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Teja K</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-102126">
+			December 18, 2015 at 7:54 am</a>		</div>
+
+		<p>Great article! Thanks for the write=up. Just a small note: In the code that you used to produce year bins, it will put all the data points into either bin 1 or bin 5 and the others will be empty. You should include month &lt;= 3 to avoid this.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=102126#respond" onclick="return addComment.moveForm( &quot;div-comment-102126&quot;, &quot;102126&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Teja K">Reply</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-102157">
+				<div id="div-comment-102157" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/d8d0881ecbb9029600759130cda28a8f" srcset="https://secure.gravatar.com/avatar/d8d0881ecbb9029600759130cda28a8f?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" originals="100" scale="1.25">			<cite class="fn">Teja K</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#comment-102157">
+			December 18, 2015 at 8:36 pm</a>		</div>
+
+		<p>Ooops, I was mistaken. My apologies.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/?replytocom=102157#respond" onclick="return addComment.moveForm( &quot;div-comment-102157&quot;, &quot;102157&quot;, &quot;respond&quot;, &quot;17900&quot; )" aria-label="Reply to Teja K">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	</ul>
+
+ 
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave A Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.analyticsvidhya.com/blog/2015/06/solution-kaggle-competition-bike-sharing-demand/#respond" style="display:none;">Cancel Reply</a></small></h3>			<form action="https://www.analyticsvidhya.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes">Your email address will not be published.</p><div class="row"><div class="col-sm-12"><textarea placeholder="Comment" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div></div><div class="row"><div class="col-sm-12"><input id="author" name="author" placeholder="Name (required)" type="text" value="" size="30"></div>
+<div class="col-sm-12"><input id="email" name="email" placeholder="Email (required)" type="text" value="" size="30"></div>
+<div class="col-sm-12 col_last"><input id="url" name="url" placeholder="Website" type="text" value="" size="30"></div></div>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit Comment"> <input type="hidden" name="comment_post_ID" value="17900" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="f9a1ddf9b8"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1493616783953"></form>
+			</div><!-- #respond -->
+	
+				</div>
+			</div>
+
+			<!-- Sidebar -->
+			<div class="col-sm-4">
+
+				<div class="sidebar q2w3-fixed-widget-container" style="height: 3275px;">
+<div id="text-34" class="widget clearfix widget_text">			<div class="textwidget"><a href="https://datahack.analyticsvidhya.com/contest/datafest-closing-ceremony/" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/29-mar-2017_datavengers.png" scale="0"></a></div>
+		</div><div id="text-16" class="widget clearfix widget_text">			<div class="textwidget"><a rel="nofollow" href="http://www.greatlearning.in/great-lakes-pgpba?utm_source=avm&amp;utm_medium=avmbanner&amp;utm_campaign=pgpba" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/Great-Lakes.gif" scale="0"></a></div>
+		</div><div id="text-36" class="widget clearfix widget_text">			<div class="textwidget"><a rel="nofollow" href="https://upgrad.com/data-analytics?utm_source=AV&amp;utm_medium=Display&amp;utm_campaign=DA_AV_Banner&amp;utm_term=DA_AV_Banner&amp;utm_content=DA_AV_Banner" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/DA-GDN_19-apr-2017.gif" scale="0"></a></div>
+		</div><div id="text-24" class="widget clearfix widget_text">			<div class="textwidget"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336x280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5229672700622157" data-ad-slot="1620249624"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--<a rel="nofollow" href="http://events.upxacademy.com/online-session?utm_source=Referral%20Sites&utm_medium=Banner&utm_campaign=AV_BlogBanner" target="_blank"><img src="https://www.analyticsvidhya.com/wp-content/uploads/2016/12/upx.gif"></a>-->
+</div>
+		</div><div id="wmp_widget-2" class="widget clearfix widget_wmp_widget"><div class="widget-title"><div class="block-cap"><h3>Popular posts</h3></div></div><ul class="wp-most-popular">
+			<li class="post-22387posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-machine-learningcategory-pandascategory-python-2tag-applytag-box-plotstag-categorical-variabletag-data-cleaningtag-data-explorationtag-data-framestag-data-miningtag-data-mungingtag-data-structuretag-data-wranglingtag-dictionarytag-distribution-analysistag-installing-pythontag-ipythontag-liststag-logistic-regressiontag-matplotlibtag-meantag-mergetag-numpytag-pandastag-pythontag-python-tutorialtag-scikit-learntag-scipytag-setstag-splittag-stacked-charttag-starting-pythontag-statisticstag-stringstag-tupletag-tuplestag-tutorial">
+				<a href="https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/" title="A Complete Tutorial to Learn Data Science with Python from Scratch">
+					A Complete Tutorial to Learn Data Science with Python from Scratch
+				</a>
+			</li>
+		
+			<li class="post-24521posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-machine-learningcategory-python-2category-rtag-baggingtag-biastag-boostingtag-classification-treestag-decision-treetag-ensemble-modelingtag-gbmtag-gradient-boostingtag-linear-modelstag-linear-regressiontag-logistic-regressiontag-machine-learningtag-over-fittingtag-random-foresttag-regression-treestag-under-fittingtag-variancetag-xgboost">
+				<a href="https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/" title="A Complete Tutorial on Tree Based Modeling from Scratch (in R &amp; Python)">
+					A Complete Tutorial on Tree Based Modeling from Scratch (in R &amp; Python)
+				</a>
+			</li>
+		
+			<li class="post-18835posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-business-analyticstag-elasticnet-regressiontag-lasso-regressiontag-linear-regressiontag-logistic-regressiontag-multinomial-logistic-rgressiontag-multiple-regressiontag-ordinal-logistic-regressiontag-polynomial-regressiontag-regressiontag-regularizationtag-ridge-regressiontag-stepwise-regression">
+				<a href="https://www.analyticsvidhya.com/blog/2015/08/comprehensive-guide-regression/" title="7 Types of Regression Techniques you should know!">
+					7 Types of Regression Techniques you should know!
+				</a>
+			</li>
+		
+			<li class="post-18770posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-business-analyticscategory-python-2category-rtag-c4-5tag-carttag-decision-treetag-gbmtag-k-meanstag-knntag-linear-regressiontag-logistic-regressiontag-machine-learningtag-naive-bayestag-neural-networktag-random-foresttag-reinforcementtag-supervised-learningtag-unsupervised">
+				<a href="https://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms/" title="Essentials of Machine Learning Algorithms (with Python and R Codes)">
+					Essentials of Machine Learning Algorithms (with Python and R Codes)
+				</a>
+			</li>
+		
+			<li class="post-19875posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-business-analyticscategory-python-2tag-machine-learningtag-naive-bayestag-probabilitytag-python">
+				<a href="https://www.analyticsvidhya.com/blog/2015/09/naive-bayes-explained/" title="6 Easy Steps to Learn Naive Bayes Algorithm (with code in Python)">
+					6 Easy Steps to Learn Naive Bayes Algorithm (with code in Python)
+				</a>
+			</li>
+		
+			<li class="post-21948posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-business-analyticstag-acf-plotstag-arimatag-arima-modelingtag-arma-modelingtag-dickey-fuller-testtag-forecastingtag-time-series">
+				<a href="https://www.analyticsvidhya.com/blog/2015/12/complete-tutorial-time-series-modeling/" title="A Complete Tutorial on Time Series Modeling in R">
+					A Complete Tutorial on Time Series Modeling in R
+				</a>
+			</li>
+		
+			<li class="post-20569posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-business-analyticscategory-python-2tag-kerneltag-machine-learningtag-scikit-learntag-svm">
+				<a href="https://www.analyticsvidhya.com/blog/2015/10/understaing-support-vector-machine-example-code/" title="Understanding Support Vector Machine algorithm from examples (along with code)">
+					Understanding Support Vector Machine algorithm from examples (along with code)
+				</a>
+			</li>
+		
+			<li class="post-23168posttype-poststatus-publishformat-standardhas-post-thumbnailcategory-business-analyticscategory-machine-learningcategory-python-2tag-arimatag-forecasting-analyticstag-pandastag-time-seriestag-time-series-analysistag-time-series-forecasting">
+				<a href="https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/" title="A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python)">
+					A comprehensive beginner’s guide to create a Time Series Forecast (with Codes in Python)
+				</a>
+			</li>
+		</ul></div><div id="text-23" class="widget clearfix widget_text">			<div class="textwidget"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336x280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5229672700622157" data-ad-slot="1620249624"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div><div id="maha_recent_posts-3" class="widget clearfix widget_recents"><div class="widget-title"><div class="block-cap"><h3>Recent Posts</h3></div></div>
+                                <div class="post-box-small recent-item clearfix" itemscope="" itemtype="http://schema.org/Article">
+                                                <div class="thumb-wrap zoom-zoom three">
+                            <a href="https://www.analyticsvidhya.com/blog/2017/04/40-questions-test-data-scientist-machine-learning-solution-skillpower-machine-learning-datafest-2017/" rel="bookmark" title="40 Questions to test a data scientist on Machine Learning [Solution: SkillPower – Machine Learning, DataFest 2017]">
+                                <img width="83" height="63" itemprop="image" class="entry-thumb zoom-it three" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/41-83x63.png" alt="40 Questions to test a data scientist on Machine Learning [Solution: SkillPower – Machine Learning, DataFest 2017]" title="40 Questions to test a data scientist on Machine Learning [Solution: SkillPower – Machine Learning, DataFest 2017]" scale="0">
+                            </a>
+                        </div>
+                                                <div class="box-small-wrap">
+                            <h3 itemprop="name" class="entry-title short-bottom">
+                                <a itemprop="url" href="https://www.analyticsvidhya.com/blog/2017/04/40-questions-test-data-scientist-machine-learning-solution-skillpower-machine-learning-datafest-2017/" rel="bookmark" title="40 Questions to test a data scientist on Machine Learning [Solution: SkillPower – Machine Learning, DataFest 2017]">
+                                    40 Questions to test a data scientist on Machine Learning [Solution: SkillPower – Machine Learning, DataFest 2017]                                </a>
+                            </h3>
+                            <div class="meta-info">
+                                <span itemprop="author" class="entry-author">Swati Kashyap</span>
+                                <span class="coma">,</span>
+                                <time itemprop="dateCreated" class="entry-date" datetime="2017-04-30T20:50:25+00:00">
+                                    April 30, 2017                                </time>
+                            </div>
+                        </div>
+                    </div>
+                                        <div class="post-box-small recent-item clearfix" itemscope="" itemtype="http://schema.org/Article">
+                                                <div class="thumb-wrap zoom-zoom three">
+                            <a href="https://www.analyticsvidhya.com/blog/2017/04/5-ai-applications-in-banking-to-look-out-for-in-next-5-years/" rel="bookmark" title="5 AI applications in Banking  to look out for in next 5 years">
+                                <img width="83" height="63" itemprop="image" class="entry-thumb zoom-it three" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/AI1-83x63.png" alt="5 AI applications in Banking  to look out for in next 5 years" title="5 AI applications in Banking  to look out for in next 5 years" scale="0">
+                            </a>
+                        </div>
+                                                <div class="box-small-wrap">
+                            <h3 itemprop="name" class="entry-title short-bottom">
+                                <a itemprop="url" href="https://www.analyticsvidhya.com/blog/2017/04/5-ai-applications-in-banking-to-look-out-for-in-next-5-years/" rel="bookmark" title="5 AI applications in Banking  to look out for in next 5 years">
+                                    5 AI applications in Banking  to look out for in next 5 years                                </a>
+                            </h3>
+                            <div class="meta-info">
+                                <span itemprop="author" class="entry-author">Guest Blog</span>
+                                <span class="coma">,</span>
+                                <time itemprop="dateCreated" class="entry-date" datetime="2017-04-28T19:28:15+00:00">
+                                    April 28, 2017                                </time>
+                            </div>
+                        </div>
+                    </div>
+                                        <div class="post-box-small recent-item clearfix" itemscope="" itemtype="http://schema.org/Article">
+                                                <div class="thumb-wrap zoom-zoom three">
+                            <a href="https://www.analyticsvidhya.com/blog/2017/04/winners-solution-codes-xtreme-mlhack-datafest-2017/" rel="bookmark" title="Winners solutions and approach: Xtreme ML Hack, AV DataFest 2017">
+                                <img width="83" height="63" itemprop="image" class="entry-thumb zoom-it three" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/Xtreme-icon-83x63.png" alt="Winners solutions and approach: Xtreme ML Hack, AV DataFest 2017" title="Winners solutions and approach: Xtreme ML Hack, AV DataFest 2017" scale="0">
+                            </a>
+                        </div>
+                                                <div class="box-small-wrap">
+                            <h3 itemprop="name" class="entry-title short-bottom">
+                                <a itemprop="url" href="https://www.analyticsvidhya.com/blog/2017/04/winners-solution-codes-xtreme-mlhack-datafest-2017/" rel="bookmark" title="Winners solutions and approach: Xtreme ML Hack, AV DataFest 2017">
+                                    Winners solutions and approach: Xtreme ML Hack, AV DataFest 2017                                </a>
+                            </h3>
+                            <div class="meta-info">
+                                <span itemprop="author" class="entry-author">Sunil Ray</span>
+                                <span class="coma">,</span>
+                                <time itemprop="dateCreated" class="entry-date" datetime="2017-04-28T19:11:11+00:00">
+                                    April 28, 2017                                </time>
+                            </div>
+                        </div>
+                    </div>
+                                        <div class="post-box-small recent-item clearfix" itemscope="" itemtype="http://schema.org/Article">
+                                                <div class="thumb-wrap zoom-zoom three">
+                            <a href="https://www.analyticsvidhya.com/blog/2017/04/flawless-winning-strategy-casino-blackjack-data-science/" rel="bookmark" title="Creating a flawless winning strategy in a Casino (BlackJack) using Data Science?">
+                                <img width="83" height="63" itemprop="image" class="entry-thumb zoom-it three" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/casino-scene-83x63.jpg" alt="Creating a flawless winning strategy in a Casino (BlackJack) using Data Science?" title="Creating a flawless winning strategy in a Casino (BlackJack) using Data Science?" scale="0">
+                            </a>
+                        </div>
+                                                <div class="box-small-wrap">
+                            <h3 itemprop="name" class="entry-title short-bottom">
+                                <a itemprop="url" href="https://www.analyticsvidhya.com/blog/2017/04/flawless-winning-strategy-casino-blackjack-data-science/" rel="bookmark" title="Creating a flawless winning strategy in a Casino (BlackJack) using Data Science?">
+                                    Creating a flawless winning strategy in a Casino (BlackJack) using Data Science?                                </a>
+                            </h3>
+                            <div class="meta-info">
+                                <span itemprop="author" class="entry-author">Tavish Srivastava</span>
+                                <span class="coma">,</span>
+                                <time itemprop="dateCreated" class="entry-date" datetime="2017-04-26T19:42:46+00:00">
+                                    April 26, 2017                                </time>
+                            </div>
+                        </div>
+                    </div>
+                        		
+            </div><div id="text-15" class="widget clearfix widget_text">			<div class="textwidget"><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336x280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5229672700622157" data-ad-slot="1620249624"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div><div id="text-19" class="widget clearfix widget_text">			<div class="textwidget"><a href="http://www.edvancer.in/certified-data-scientist-with-python-course?utm_source=AV&amp;utm_medium=AVads&amp;utm_campaign=AVadsnonfc&amp;utm_content=pythonavad" rel="nofollow" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/edvancer-oct-2016.gif" alt="" scale="0"></a></div>
+		</div><div id="maha_social_subscribe-4" class="widget clearfix social_subscribe"><div class="widget-title"><div class="block-cap"><h3>Get Connected</h3></div></div>
+                		<div class="social-network twitter">
+                <a class="social-network-icon trans-it" target="_blank" href="http://www.twitter.com/analyticsvidhya" title="Follow our twitter"><i class="icon-twitter trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">9,424</div>
+                    <div class="social-network-unit">Followers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+                        <div class="social-network facebook">
+                <a class="social-network-icon trans-it" target="_blank" href="http://www.facebook.com/Analyticsvidhya" title="Like our Facebook"><i class="icon-facebook trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">31,319</div>
+                    <div class="social-network-unit">Followers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            
+                        <div class="social-network gplus">
+                <a class="social-network-icon trans-it" target="_blank" href="https://plus.google.com/+Analyticsvidhya" title="Follow our Google+"><i class="icon-gplus trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">1,727</div>
+                    <div class="social-network-unit">Followers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            
+                        <div class="social-network rss">
+                <a class="social-network-icon trans-it" target="_blank" href="http://feedburner.google.com/fb/a/mailverify?uri=analyticsvidhya" title="RSS Feeds"><i class="icon-rss trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">Email</div>
+                    <div class="social-network-unit">Subscribe</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+                		
+            </div><!-- fixed widget --><div id="text-28" class="widget clearfix widget_text">			<div class="textwidget"><a href="https://datahack.analyticsvidhya.com/contest/datacon-big-data-analytics-workshop/" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/29-mar-2017_datacon.png" scale="0"></a></div>
+		</div><!-- fixed widget --><div id="text-30" class="widget clearfix widget_text">			<div class="textwidget"><a href="https://datahack.analyticsvidhya.com/contest/mission-2020-the-future-of-careers-in-machine-lear/" target="_blank"><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/29-mar-2017_av.png" scale="0"></a>
+</div>
+		</div></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+		</div>
+		<!-- END PAGE WRAPPER -->
+
+				
+		<!-- START FOOTER -->
+		<footer id="footer">
+
+			<!-- start footer sidebar -->
+			<div id="footer-sidebar">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-sm-3">
+							<div id="maha_menus-3" class="widget clearfix widget_menus"><div class="widget-title"><div class="block-cap"><h3>Analytics Vidhya</h3></div></div><ul><li><a href="https://www.analyticsvidhya.com/about-me/">About Us</a></li><li><a href="https://www.analyticsvidhya.com/about-me/team">Team</a></li><li><a href="https://www.analyticsvidhya.com/av-volunteers/">Volunteers</a></li><li><a href="https://www.analyticsvidhya.com/about-me/career-analytics-vidhya/">Careers</a></li><li><a href="https://www.analyticsvidhya.com/about-me/write/">Write for us</a></li><li><a href="https://www.analyticsvidhya.com/contact/">Contact</a></li></ul></div>						</div>
+
+						<div class="col-sm-3">
+							<div id="maha_menus-4" class="widget clearfix widget_menus"><div class="widget-title"><div class="block-cap"><h3>Data Scientists</h3></div></div><ul><li><a href="http://analyticsvidhya.com/blog">Blog</a></li><li><a href="https://discuss.analyticsvidhya.com/">Discuss</a></li><li><a href="http://analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/">Learning Paths</a></li><li><a href="https://datahack.analyticsvidhya.com/">DataHack</a></li><li><a href="https://analyticsvidhya.com/blog/category/events/">Events</a></li><li><a href="https://www.analyticsvidhya.com/jobs/">Jobs</a></li></ul></div>						</div>
+
+						<div class="col-sm-3">
+							<div id="maha_menus-2" class="widget clearfix widget_menus"><div class="widget-title"><div class="block-cap"><h3>Companies</h3></div></div><ul><li><a href="https://www.analyticsvidhya.com/contact/">Advertise with Us</a></li><li><a href="https://www.analyticsvidhya.com/jobs/company/signup/">Recruit using AV</a></li><li><a href="https://datahack.analyticsvidhya.com/">Hackathon</a></li><li><a href="https://www.analyticsvidhya.com/datafest-2017">DataFest-2017</a></li></ul></div>						</div>
+                                                <div class="col-sm-3">
+							<div id="maha_social_subscribe-3" class="widget clearfix social_subscribe"><div class="widget-title"><div class="block-cap"><h3>Social Media</h3></div></div>
+                		<div class="social-network twitter">
+                <a class="social-network-icon trans-it" target="_blank" href="http://www.twitter.com/analyticsvidhya" title="Follow our twitter"><i class="icon-twitter trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">9,423</div>
+                    <div class="social-network-unit">Followers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+                        <div class="social-network facebook">
+                <a class="social-network-icon trans-it" target="_blank" href="http://www.facebook.com/Analyticsvidhya" title="Like our Facebook"><i class="icon-facebook trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">31,319</div>
+                    <div class="social-network-unit">Followers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            
+                        <div class="social-network gplus">
+                <a class="social-network-icon trans-it" target="_blank" href="https://plus.google.com/+Analyticsvidhya" title="Follow our Google+"><i class="icon-gplus trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">1,727</div>
+                    <div class="social-network-unit">Followers</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            
+                        <div class="social-network rss">
+                <a class="social-network-icon trans-it" target="_blank" href="https://feedburner.google.com/fb/a/mailverify?uri=analyticsvidhya" title="RSS Feeds"><i class="icon-rss trans-it"></i></a>
+                <div class="social-network-counter">
+                    <div class="social-network-count">Email</div>
+                    <div class="social-network-unit">Subscribe</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+                		
+            </div>						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- end footer sidebar -->
+
+			<!-- start f-copyright -->
+			<div class="f-copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8">
+							© Copyright 2013-2017 Analytics Vidhya						</div>
+						<div class="col-sm-4">
+							<nav>
+															</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end f-copyright -->
+
+		</footer>
+		<!-- END FOOTER -->
+
+	</div>
+	<!-- END OFF CANVAS BODY -->
+
+	</div>
+	<!-- END BODY BACKGROUND -->
+
+	<div id="scrolltop">
+		<a><i class="icon-up-open-big"></i></a>
+	</div>
+	
+	</div>
+
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/www.analyticsvidhya.com\/blog\/2015\/06\/solution-kaggle-competition-bike-sharing-demand\/":17900};
+	</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/form.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/core.min.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/jquery.form.min.js.下載" defer="defer"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/scripts.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/devicepx-jetpack.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/main.js.下載"></script><style type="text/css">.marquee{white-space:nowrap;overflow:hidden;visibility:hidden;}#marq_kill_marg_bord{border:none!important;margin:0!important;}</style>
+<script type="text/javascript">
+/* <![CDATA[ */
+var MahaAjax = {"ajaxurl":"https:\/\/www.analyticsvidhya.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/basix.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/add_to_cart.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/comment-reply.min.js.下載" defer="defer"></script>
+<script type="text/javascript">
+var q2w3_sidebar_options = new Array();
+q2w3_sidebar_options[0] = { "sidebar" : "blog-sidebar", "margin_top" : 100, "margin_bottom" : 800, "stop_id" : "", "screen_max_width" : 0, "screen_max_height" : 0, "width_inherit" : false, "refresh_interval" : 1500, "window_load_hook" : false, "disable_mo_api" : false, "widgets" : ['text-28','text-30'] };
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/q2w3-fixed-widget.min.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/effect.min.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/effect-blind.min.js.下載" defer="defer"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var stbUserOptions = {"mode":"css","cssOptions":{"roundedCorners":true,"mbottom":10,"imgHide":"https:\/\/www.analyticsvidhya.com\/blog\/wp-content\/plugins\/wp-special-textboxes\/images\/minus.png","imgShow":"https:\/\/www.analyticsvidhya.com\/blog\/wp-content\/plugins\/wp-special-textboxes\/images\/plus.png","strHide":"Hide","strShow":"Show"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/wstb.min.js.下載" defer="defer"></script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/wp-embed.min.js.下載" defer="defer"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/sharing.js.下載" defer="defer"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-pocket', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcompocket', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+</script>
+<style>@media (min-width: 769px) {#top-bar-sticky {display: inherit;}}       		    /*Font Family Content*/
+	    #buddypress div.generic-button .friendship-button,#buddypress .bbp-the-content-wrapper .wp-editor-container .quicktags-toolbar input, #buddypress div.generic-button .friendship-button a,
+	    #buddypress .maha_bp_group_button div.generic-button a, .woo-maha ul.order_details.bacs_details h3, .widget.widget_icl_lang_sel_widget #lang_sel, #lang_sel_footer, body{;
+	    						font-family:'Raleway', Arial, sans-serif;
+								    	font-weight:400;
+	    	font-size:15px;
+	    }
+	    #buddypress div#item-header #item-buttons div.generic-button#post-mention a,#buddypress div#item-header #item-buttons div.generic-button#send-private-message a,#buddypress .maha-bp-content-font {
+								font-family:'Raleway', Arial, sans-serif !important;
+								    }
+        	    	        	        	/*Background Body*/
+        #body-maha {
+        	background-color: #fff; background-image:url("https://www.analyticsvidhya.com/wp-content/uploads/2015/02/wild-sea24.jpg"); background-repeat: repeat;
+        	background-position: center center; background-size: ; background-attachment: ; 
+    	}        
+        #body-background { margin: 0 auto;}
+        @media (min-width: 1200px){#body-background, #main-nav-bar.on-stuck { width: 1200px; }}
+        @media (max-width: 1199px) and (min-width: 992px) {#body-background, #main-nav-bar.on-stuck { width: 997px; }}
+        @media (max-width: 991px) and (min-width: 768px) {#body-background, #main-nav-bar.on-stuck { width: 773px; }}
+   	            			.main-ul-nav ul li.mh-navcat-1915:hover > a,.main-ul-nav ul li.mh-navcat-1915.current-menu-item > a,.main-ul-nav ul li.mh-navcat-1915.current-post-parent > a{
+		-webkit-box-shadow: 0 -4px 0 #222 inset; -moz-box-shadow: 0 -4px 0 #222 inset; box-shadow: 0 -4px 0 #222 inset; }
+         /*Custom Category*/
+        .i-category a.mh-elcat-1915{background:#222;}
+    		.main-ul-nav ul li.mh-navcat-2284:hover > a,.main-ul-nav ul li.mh-navcat-2284.current-menu-item > a,.main-ul-nav ul li.mh-navcat-2284.current-post-parent > a{
+		-webkit-box-shadow: 0 -4px 0 #222 inset; -moz-box-shadow: 0 -4px 0 #222 inset; box-shadow: 0 -4px 0 #222 inset; }
+         /*Custom Category*/
+        .i-category a.mh-elcat-2284{background:#222;}
+    		.main-ul-nav ul li.mh-navcat-2498:hover > a,.main-ul-nav ul li.mh-navcat-2498.current-menu-item > a,.main-ul-nav ul li.mh-navcat-2498.current-post-parent > a{
+		-webkit-box-shadow: 0 -4px 0 #222 inset; -moz-box-shadow: 0 -4px 0 #222 inset; box-shadow: 0 -4px 0 #222 inset; }
+         /*Custom Category*/
+        .i-category a.mh-elcat-2498{background:#222;}
+    		.main-ul-nav ul li.mh-navcat-3118:hover > a,.main-ul-nav ul li.mh-navcat-3118.current-menu-item > a,.main-ul-nav ul li.mh-navcat-3118.current-post-parent > a{
+		-webkit-box-shadow: 0 -4px 0 #8224e3 inset; -moz-box-shadow: 0 -4px 0 #8224e3 inset; box-shadow: 0 -4px 0 #8224e3 inset; }
+         /*Custom Category*/
+        .i-category a.mh-elcat-3118{background:#8224e3;}
+                                    	    /*Content Options*/
+	    /*URL Content Default Color*/
+	    a{color: #080e14}
+	    /*Content Color*/
+	    body, .widget_calendar tbody td,input[type="text"], input[type="password"], input[type="email"], textarea, select, #con-search, #buddypress #profile-edit-form ul.button-nav a, #buddypress form#whats-new-form textarea, #buddypress .standard-form select,
+	    #buddypress div.item-list-tabs#subnav ul li.feed a, #buddypress ul.item-list li div.item-title span, #buddypress ul#groups-list li .item-desc p, .bp-site-wide-message div#message p a, #sitewide-notice a, #buddypress table tr td.thread-info p.thread-excerpt,
+	    #buddypress div.activity-comments form textarea
+	    {color: #080e14}
+
+
+	    #bbpress-forums .bbp-body li.bbp-forum-topic-reply, li.bbp-topic-post, .bbp-pagination-count, #bbpress-forums div.bbp-reply-content .maha_bbp_author_name
+	    {color: #080e14}
+
+	    .woo-maha .form-row .chosen-container-single .chosen-single, .woo-maha .quantity.buttons_added > input, .woo-maha .myaccount_user, .woo-maha .myaccount_user a, .woo-maha .myaccount_user span
+	    {color: #080e14}
+
+
+
+	    #con-search .search-field, ::-webkit-input-placeholder
+	    {color: #080e14 !important}
+                    
+
+
+        
+
+
+                                                            </style>
+<!--     ===== START Dreamgrow Scroll Triggered Box 2.3 =====   -->
+
+<div class="dgd_overlay"></div>
+
+<!--     ===== END OF Dreamgrow Scroll Triggered Box 2.3 =====   -->
+
+<script type="text/javascript" src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/e-201718.js.下載" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.8.2',blog:'58948004',post:'17900',tz:'0',srv:'www.analyticsvidhya.com'} ]);
+	_stq.push([ 'clickTrackerInit', '58948004', '17900' ]);
+</script>
+
+        
+
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 10056/10496 objects using memcached
+Page Caching using memcached
+
+ Served from: www.analyticsvidhya.com @ 2017-05-01 05:33:25 by W3 Total Cache --><img src="./Kaggle Bike Sharing Demand Prediction - How To Get In Top 5 Of Competition_files/g.gif" alt=":)" width="6" height="5" id="wpstats" scale="0"><div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 543px; top: 9px;"><iframe src="https://api.weblio.jp/act/quote/v_1_0/e/?q=DataHack&amp;type=emicro&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" name="weblioExtensionsFrame" width="380" height="80" border="0" frameborder="0" scrolling="no"></iframe></div></body></html>

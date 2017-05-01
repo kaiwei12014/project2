@@ -1,0 +1,99 @@
+/*
+Theme Name: Sparkling Child
+Theme URI: https://colorlib.com/wp/themes/sparkling
+Author: Colorlib
+Author URI: http://colorlib.com/
+Description: Sparkling is a clean minimal and responsive WordPress theme well suited for travel, health, business, finance, design, art, personal and any other creative websites and blogs. Developed using Bootstrap 3 that makes it mobile and tablets friendly. Theme comes with full-screen slider, social icon integration, author bio, popular posts widget and improved category widget. Sparkling incorporates latest web standards such as HTML5 and CSS3 and is SEO friendly thanks to its clean structure and codebase. It has dozens of Theme Options to change theme layout, colors, fonts, slider settings and much more. Theme is also translation and multilingual ready and is available in Spanish. Sparkling is a free WordPress theme with premium functionality and design.
+Version: 2.0.0
+Template: sparkling
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sparkling
+Domain Path: /languages/
+Tags: green, light, white, gray, black, one-column, two-columns, right-sidebar, fluid-layout, responsive-layout, photoblogging, left-sidebar, translation-ready, custom-background, custom-colors, custom-menu, featured-images, full-width-template, post-formats, theme-options, threaded-comments
+
+
+This theme, like WordPress, is licensed under the GPL.
+
+sparkling is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+
+*/
+
+/*
+.textwidget {
+    color: #636467;
+    font-family: "Merriweather";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+}
+*/
+
+/* reduce margin in sidebar */
+#secondary .widget {
+    margin-bottom: 30px;
+    color: #C1C0C0;
+    overflow: hidden;
+}
+
+/* recent post link color */
+#secondary .widget a {
+    color: #9C9B9B;
+}
+
+/* recent posts links */
+#recent-posts-3 li {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* sidebar headers */
+#secondary .widget > h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    color: #636467;
+}
+
+/* categories links */
+.widget ul {
+    line-height: 18px;
+    font-size: 16px;
+}
+
+/* tagcloud links */
+.tagcloud a {
+    padding: 6px 7px;
+    margin-right: 0px;
+    margin-bottom: 4px;
+    line-height: 100%;
+    display: inline-block;
+    color: #FFF !important;
+    background-color: #1E73BE;
+    border-radius: 3px;
+    font-size: 14px !important;
+}
+
+/* button colors  */
+.btn-default, .label-default, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+    background-color: #1E73BE;
+    border-color: #1E73BE;
+    transition: background-color 0.3s linear 0s;
+}
+
+/* links to popular posts at bottom of page */
+div.post-content {
+    color: #6B6B6B;
+    word-wrap: break-word;
+    font-family: "Open Sans",sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+/* sometimes post content-area exceeds 750px (due to syntax highlighter?), doesn't match up with featured image width */
+div#primary.content-area {
+    max-width: 850px;
+}
