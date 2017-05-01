@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/e6a2afb548cbfc8cf233763e31b8bfd8?postId=f992daa1045a -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>MLP for regression – Medium</title><meta name="description" content="MLP for regression"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./fa0e5a4decb17a925ca6015778d0ffb1.js.下載" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-9f0a4ad9c85ca776e669003688baa9d55f9db315562ce4d231d37dab2714c70a.css"><div id="gist36919726" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-mlp_regression-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-mlp_regression-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-mlp_regression-py-LC1" class="blob-code blob-code-inner js-file-line">model <span class="pl-k">=</span> Sequential()</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-mlp_regression-py-LC2" class="blob-code blob-code-inner js-file-line">model.add(Dense(<span class="pl-c1">500</span>, <span class="pl-v">input_shape</span> <span class="pl-k">=</span> (<span class="pl-c1">TRAIN_SIZE</span>, )))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-mlp_regression-py-LC3" class="blob-code blob-code-inner js-file-line">model.add(Activation(<span class="pl-s"><span class="pl-pds">'</span>relu<span class="pl-pds">'</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-mlp_regression-py-LC4" class="blob-code blob-code-inner js-file-line">model.add(Dropout(<span class="pl-c1">0.25</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-mlp_regression-py-LC5" class="blob-code blob-code-inner js-file-line">model.add(Dense(<span class="pl-c1">250</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-mlp_regression-py-LC6" class="blob-code blob-code-inner js-file-line">model.add(Activation(<span class="pl-s"><span class="pl-pds">'</span>relu<span class="pl-pds">'</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-mlp_regression-py-LC7" class="blob-code blob-code-inner js-file-line">model.add(Dense(<span class="pl-c1">1</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-mlp_regression-py-LC8" class="blob-code blob-code-inner js-file-line">model.add(Activation(<span class="pl-s"><span class="pl-pds">'</span>linear<span class="pl-pds">'</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="file-mlp_regression-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-mlp_regression-py-LC9" class="blob-code blob-code-inner js-file-line">model.compile(<span class="pl-v">optimizer</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>adam<span class="pl-pds">'</span></span>, <span class="pl-v">loss</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>mse<span class="pl-pds">'</span></span>)</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Rachnog/fa0e5a4decb17a925ca6015778d0ffb1/raw/00ea85a959df86a685088716590c7fea12dff2fb/mlp_regression.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Rachnog/fa0e5a4decb17a925ca6015778d0ffb1#file-mlp_regression-py">mlp_regression.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>
